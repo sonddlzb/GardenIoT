@@ -22,12 +22,27 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="41G-HD-waI" customClass="SDAnimatedImageView">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfm-og-Ngo">
+                    <rect key="frame" x="48" y="771" width="318" height="61"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Smart solution for a fresh life">
+                            <attributes>
+                                <color key="NSColor" red="0.2318618881118881" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="18" name="Zapfino"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vfm-og-Ngo" secondAttribute="bottom" constant="30" id="BUT-wr-XyC"/>
                 <constraint firstAttribute="trailing" secondItem="41G-HD-waI" secondAttribute="trailing" id="FrA-la-Gw4"/>
                 <constraint firstItem="41G-HD-waI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cMo-jh-1vM"/>
+                <constraint firstItem="vfm-og-Ngo" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="eTV-Fz-JOT"/>
                 <constraint firstItem="41G-HD-waI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lb9-oS-4o4"/>
                 <constraint firstAttribute="bottom" secondItem="41G-HD-waI" secondAttribute="bottom" id="sjA-IS-Jh7"/>
             </constraints>

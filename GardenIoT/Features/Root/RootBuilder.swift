@@ -37,9 +37,13 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let viewController = RootViewController()
         let interactor = RootInteractor(presenter: viewController)
         let splashBuilder = DIContainer.resolve(SplashBuildable.self, agrument: component)
+        let loginBuilder = DIContainer.resolve(LoginBuildable.self, agrument: component)
+        let homeBuilder = DIContainer.resolve(HomeBuildable.self, agrument: component)
         return RootRouter(interactor: interactor,
                           viewController: viewController,
                           window: dependency.window,
-                          splashBuilder: splashBuilder)
+                          splashBuilder: splashBuilder,
+                          loginBuilder: loginBuilder,
+                          homeBuilder: homeBuilder)
     }
 }

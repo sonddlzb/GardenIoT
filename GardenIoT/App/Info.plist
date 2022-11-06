@@ -14,6 +14,14 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+    <key>UIAppFonts</key>
+    <array>
+        <string>Outfit-Bold.otf</string>
+        <string>Outfit-SemiBold.otf</string>
+        <string>Outfit-Medium.otf</string>
+        <string>Outfit-Regular.otf</string>
+        <string>Inter-SemiBold.ttf</string>
+    </array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="contentView" destination="Rzr-qE-7yX" id="eYH-wx-nJo"/>
+                <outlet property="homeTabBar" destination="OfB-br-Amp" id="aX5-j2-o85"/>
+                <outlet property="view" destination="iN0-l3-epB" id="jYO-eb-xeE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rzr-qE-7yX">
+                    <rect key="frame" x="0.0" y="44" width="414" height="762"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbJ-j1-LYY">
+                    <rect key="frame" x="0.0" y="806" width="414" height="90"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfB-br-Amp" customClass="HomeTabBar" customModule="GardenIoT" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="bJ5-a1-mFC"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dtc-5v-80a">
+                            <rect key="frame" x="0.0" y="57" width="414" height="33"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="OfB-br-Amp" secondAttribute="trailing" id="3ci-PF-gy3"/>
+                        <constraint firstAttribute="trailing" secondItem="Dtc-5v-80a" secondAttribute="trailing" id="6IS-FR-4KB"/>
+                        <constraint firstItem="Dtc-5v-80a" firstAttribute="top" secondItem="OfB-br-Amp" secondAttribute="bottom" constant="-3" id="Q0Z-du-1Oa"/>
+                        <constraint firstAttribute="bottom" secondItem="Dtc-5v-80a" secondAttribute="bottom" id="XCM-0V-TlE"/>
+                        <constraint firstAttribute="height" constant="90" id="Ysz-Qv-FEp"/>
+                        <constraint firstItem="OfB-br-Amp" firstAttribute="top" secondItem="nbJ-j1-LYY" secondAttribute="top" id="bJp-iC-87h"/>
+                        <constraint firstItem="Dtc-5v-80a" firstAttribute="leading" secondItem="nbJ-j1-LYY" secondAttribute="leading" id="bM6-U2-rmp"/>
+                        <constraint firstItem="OfB-br-Amp" firstAttribute="leading" secondItem="nbJ-j1-LYY" secondAttribute="leading" id="faH-Rw-b4P"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nbJ-j1-LYY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YCi-eE-DrM"/>
+                <constraint firstAttribute="trailing" secondItem="nbJ-j1-LYY" secondAttribute="trailing" id="YuK-aE-iP7"/>
+                <constraint firstItem="nbJ-j1-LYY" firstAttribute="top" secondItem="Rzr-qE-7yX" secondAttribute="bottom" id="ZWQ-JV-M31"/>
+                <constraint firstAttribute="bottom" secondItem="nbJ-j1-LYY" secondAttribute="bottom" id="blS-dT-Ukh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Rzr-qE-7yX" secondAttribute="trailing" id="cje-Ht-Jrd"/>
+                <constraint firstItem="Rzr-qE-7yX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="tkt-ru-Muz"/>
+                <constraint firstItem="Rzr-qE-7yX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="utf-b7-7Wl"/>
+            </constraints>
+            <point key="canvasLocation" x="-394" y="74"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
