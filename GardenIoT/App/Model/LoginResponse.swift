@@ -16,5 +16,13 @@ class LoginResponse {
 
     init(entity: LoginResponseEntity) {
         self.authorization = entity.authorization
+    var accessToken: String
+
+    init(accessToken: String) {
+        self.accessToken = accessToken
+    }
+
+    init(entity: LoginResponseEntity) {
+        self.accessToken = entity.accessToken
     }
 }

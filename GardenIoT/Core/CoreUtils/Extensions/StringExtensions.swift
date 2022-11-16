@@ -64,17 +64,13 @@ public extension String {
 }
 
 public extension String {
-    func matches(regex: String) -> [String] {
-        guard let regex = try? NSRegularExpression(pattern: regex, options: [.caseInsensitive]) else { return [] }
-        let matches  = regex.matches(in: self, options: [], range: NSMakeRange(0, self.count))
-        return matches.map { match in
-            return String(self[Range(match.range, in: self)!])
-        }
-    }
-
     func convertToDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-mm-dd"
         return dateFormatter.date(from: self) ?? Date()
+    }
+
+    func matches(regex: String) -> Bool {
+        return self.range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
     }
 }

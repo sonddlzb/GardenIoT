@@ -24,6 +24,7 @@ final class LoginViewController: UIViewController, LoginViewControllable {
 
     // MARK: - Variables
     weak var listener: LoginPresentableListener?
+    private var didTapSignInButtonBefore = false
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -62,6 +63,7 @@ final class LoginViewController: UIViewController, LoginViewControllable {
 
     @IBAction func signInButtonDidTap(_ sender: Any) {
         self.listener?.didTapSignIn()
+        self.didTapSignInButtonBefore = true
     }
 
     @objc func textFieldDidChange() {
@@ -91,6 +93,8 @@ extension LoginViewController {
 extension LoginViewController: LoginPresentable {
     func bind(viewModel: LoginViewModel) {
         self.loadViewIfNeeded()
-        self.emptyLabel.isHidden = !viewModel.checkEmpty()
+        if self.didTapSignInButtonBefore {
+            self.emptyLabel.isHidden = !viewModel.checkEmpty()
+        }
     }
 }

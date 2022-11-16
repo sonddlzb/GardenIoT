@@ -8,5 +8,5 @@
 import Foundation
 
 struct LoginResponseEntity: Codable {
-    var authorization: String
+    var accessToken: String
 }

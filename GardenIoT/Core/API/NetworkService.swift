@@ -17,6 +17,7 @@ protocol NetworkService {
 //    func getListDailyPictures(utc: Int) -> Observable<[DailyPicture]>
 //    func getPictureDetailById(_ id: String) -> Observable<PictureDetail>
     func login(username: String, password: String) -> Observable<LoginResponse>
+    func register(username: String, password: String, name: String, address: String, phoneNumber: String) -> Observable<LoginResponse>
 }
 
 final class NetworkServiceImpl: NetworkService {
@@ -50,5 +51,9 @@ final class NetworkServiceImpl: NetworkService {
 
     func login(username: String, password: String) -> Observable<LoginResponse> {
         return LoginAPI(username: username, password: password).execute()
+    }
+
+    func register(username: String, password: String, name: String, address: String, phoneNumber: String) -> Observable<LoginResponse> {
+        return RegisterAPI(username: username, password: password, name: name, address: address, phoneNumber: phoneNumber).execute()
     }
 }

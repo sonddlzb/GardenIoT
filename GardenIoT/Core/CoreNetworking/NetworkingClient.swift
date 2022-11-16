@@ -3,6 +3,7 @@ import Foundation
 import Alamofire
 import RxSwift
 import TLLogging
+import UIKit
 
 public protocol NetworkClient {
     func request(endpoint: HttpEndpointParams) -> Observable<Data>
@@ -48,18 +49,18 @@ class AlamofireClient: NetworkClient {
             self.sessionManager.request(url,
                                         method: HTTPMethod(rawValue: endpoint.method().rawValue),
                                         parameters: endpoint.parameters(),
-                                        encoding: endpoint.encoding() == .jsonEncoding ? JSONEncoding.default : URLEncoding.default,
+                                        encoding: endpoint.encoding() == .jsonEncoding ? JSONEncoding.default: URLEncoding.default,
                                         headers: HTTPHeaders(endpoint.headers() ?? [:]))
-                .responseData { (response) in
+            .responseData { response in
+                if let error = self.errorFromResponse(response) {
+                    TLLogging.log("📬 Received error \(error) from request: \n\(response.request!.cURL)")
+                    observer.onError(error)
+                    return
+                }
+
                     if let data = response.value {
                         TLLogging.log("📬 Received response from request: \n\(response.request!.cURL)")
                         observer.onNext(data)
-                        return
-                    }
-
-                    if let error = self.errorFromResponse(response) {
-                        TLLogging.log("📬 Received error \(error) from request: \n\(response.request!.cURL)")
-                        observer.onError(error)
                     }
                 }
 

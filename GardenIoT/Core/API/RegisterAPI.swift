@@ -1,23 +1,29 @@
 //
-//  loginAPI.swift
+//  RegisterAPI.swift
 //  GardenIoT
 //
-//  Created by đào sơn on 06/11/2022.
+//  Created by đào sơn on 08/11/2022.
 //
 
 import Foundation
 
-class LoginAPI: HttpEndpoint {
+class RegisterAPI: HttpEndpoint {
     var username: String
     var password: String
+    var name: String
+    var address: String
+    var phoneNumber: String
 
-    init(username: String, password: String) {
+    init(username: String, password: String, name: String, address: String, phoneNumber: String) {
         self.username = username
         self.password = password
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.address = address
     }
 
     func path() -> String {
-        return "api/auth/login"
+        return "api/auth/register"
     }
 
     func method() -> HttpMethod {
@@ -32,7 +38,10 @@ class LoginAPI: HttpEndpoint {
         return [
             "username": self.username,
             "password": self.password,
-            "role": "TC-users"
+            "role": "TC-users",
+            "name": self.name,
+            "phoneNumber": self.phoneNumber,
+            "address": self.address
         ]
     }
 
