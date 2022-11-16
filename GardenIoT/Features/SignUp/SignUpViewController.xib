@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Outfit-Medium.otf">
+            <string>Outfit-Medium</string>
+        </array>
+        <array key="Outfit-SemiBold.otf">
+            <string>Outfit-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController">
+            <connections>
+                <outlet property="addressTextField" destination="hxz-ng-c6u" id="uFq-eb-YFf"/>
+                <outlet property="cancelButton" destination="KH0-Ay-Fei" id="Nfy-rs-Vzw"/>
+                <outlet property="confirmPasswordTextField" destination="WK8-sd-I9F" id="ZdW-DL-aqJ"/>
+                <outlet property="nameTextField" destination="x9f-6P-lVg" id="6jx-1j-ueg"/>
+                <outlet property="passwordTextField" destination="yjs-7V-WrB" id="NWF-Vg-hT3"/>
+                <outlet property="phoneNumberTextField" destination="XoG-zk-gBE" id="gjx-IC-q4b"/>
+                <outlet property="usernameTextField" destination="5fl-5W-GUO" id="Ulm-yO-veC"/>
+                <outlet property="view" destination="iN0-l3-epB" id="jYO-eb-xeE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_signup_background" translatesAutoresizingMaskIntoConstraints="NO" id="1oN-rB-J96">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WK8-sd-I9F" customClass="PasswordTextField" customModule="GardenIoT" customModuleProvider="target">
+                    <rect key="frame" x="50" y="468" width="314" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Xus-aN-mQO"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdq-qD-w6P">
+                    <rect key="frame" x="50" y="124" width="224" height="34"/>
+                    <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="32"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9f-6P-lVg" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
+                    <rect key="frame" x="50" y="208" width="314" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="hGC-rh-qCU"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XoG-zk-gBE" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
+                    <rect key="frame" x="50" y="260" width="314" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="8Ga-xb-6td"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxz-ng-c6u" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
+                    <rect key="frame" x="50" y="312" width="314" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="eIS-SN-2bf"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fl-5W-GUO" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
+                    <rect key="frame" x="50" y="364" width="314" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="7yj-90-j4L"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjs-7V-WrB" customClass="PasswordTextField" customModule="GardenIoT" customModuleProvider="target">
+                    <rect key="frame" x="50" y="416" width="314" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="eS6-kr-lTH"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lbt-XU-J4Y">
+                    <rect key="frame" x="0.0" y="59" width="414" height="30"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KH0-Ay-Fei" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_cancel" translatesAutoresizingMaskIntoConstraints="NO" id="dcK-zi-3ft">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="dcK-zi-3ft" secondAttribute="trailing" id="8Pi-D6-Tay"/>
+                                <constraint firstItem="dcK-zi-3ft" firstAttribute="top" secondItem="KH0-Ay-Fei" secondAttribute="top" id="HFX-pL-oH3"/>
+                                <constraint firstAttribute="bottom" secondItem="dcK-zi-3ft" secondAttribute="bottom" id="QMj-3G-i7h"/>
+                                <constraint firstAttribute="width" constant="40" id="igO-L4-jPh"/>
+                                <constraint firstItem="dcK-zi-3ft" firstAttribute="leading" secondItem="KH0-Ay-Fei" secondAttribute="leading" id="oxJ-lY-JLR"/>
+                            </constraints>
+                            <connections>
+                                <action selector="cancelButtonDidTap:" destination="-1" eventType="touchUpInside" id="LIk-SS-BuB"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="KH0-Ay-Fei" secondAttribute="bottom" id="7KF-xC-DCW"/>
+                        <constraint firstItem="KH0-Ay-Fei" firstAttribute="leading" secondItem="Lbt-XU-J4Y" secondAttribute="leading" id="CZb-Mq-xAj"/>
+                        <constraint firstItem="KH0-Ay-Fei" firstAttribute="top" secondItem="Lbt-XU-J4Y" secondAttribute="top" id="Ihs-dZ-Hn7"/>
+                        <constraint firstAttribute="height" constant="30" id="ND8-cW-gVt"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQS-a8-8Tl" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
+                    <rect key="frame" x="112" y="528" width="190" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJK-SQ-rTz">
+                            <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
+                            <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                    <constraints>
+                        <constraint firstItem="gJK-SQ-rTz" firstAttribute="leading" secondItem="hQS-a8-8Tl" secondAttribute="leading" id="K0t-Fo-UIs"/>
+                        <constraint firstAttribute="height" constant="40" id="L7H-hp-jKJ"/>
+                        <constraint firstAttribute="trailing" secondItem="gJK-SQ-rTz" secondAttribute="trailing" id="LkJ-pb-RCG"/>
+                        <constraint firstAttribute="bottom" secondItem="gJK-SQ-rTz" secondAttribute="bottom" id="QQ3-40-ZpU"/>
+                        <constraint firstAttribute="width" constant="190" id="TwA-9T-Sql"/>
+                        <constraint firstItem="gJK-SQ-rTz" firstAttribute="top" secondItem="hQS-a8-8Tl" secondAttribute="top" id="rih-EF-BxF"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5fl-5W-GUO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="0RT-aM-HZT"/>
+                <constraint firstItem="XoG-zk-gBE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="6O6-GX-DAB"/>
+                <constraint firstItem="hxz-ng-c6u" firstAttribute="top" secondItem="XoG-zk-gBE" secondAttribute="bottom" constant="12" id="6nR-Xa-nSA"/>
+                <constraint firstItem="yjs-7V-WrB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="FJQ-5q-Xb2"/>
+                <constraint firstItem="WK8-sd-I9F" firstAttribute="top" secondItem="yjs-7V-WrB" secondAttribute="bottom" constant="12" id="Fu1-Iy-2Qt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WK8-sd-I9F" secondAttribute="trailing" constant="50" id="I3G-BC-fv9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5fl-5W-GUO" secondAttribute="trailing" constant="50" id="Kht-gN-QWE"/>
+                <constraint firstItem="Lbt-XU-J4Y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="LTM-5U-m56"/>
+                <constraint firstItem="hQS-a8-8Tl" firstAttribute="top" secondItem="WK8-sd-I9F" secondAttribute="bottom" constant="20" id="Lxh-S4-02l"/>
+                <constraint firstAttribute="bottom" secondItem="1oN-rB-J96" secondAttribute="bottom" id="RVj-qt-0ab"/>
+                <constraint firstItem="1oN-rB-J96" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="T2Q-eE-7XH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XoG-zk-gBE" secondAttribute="trailing" constant="50" id="W8t-Ds-qaA"/>
+                <constraint firstItem="Lbt-XU-J4Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="Xgl-n7-PWV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="x9f-6P-lVg" secondAttribute="trailing" constant="50" id="XjX-6a-MXw"/>
+                <constraint firstItem="vdq-qD-w6P" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="Xms-yx-5GG"/>
+                <constraint firstItem="yjs-7V-WrB" firstAttribute="top" secondItem="5fl-5W-GUO" secondAttribute="bottom" constant="12" id="Yg0-RF-GjP"/>
+                <constraint firstItem="hQS-a8-8Tl" firstAttribute="centerX" secondItem="1oN-rB-J96" secondAttribute="centerX" id="a6T-5F-u5z"/>
+                <constraint firstItem="x9f-6P-lVg" firstAttribute="top" secondItem="vdq-qD-w6P" secondAttribute="bottom" constant="50" id="a8L-8U-bLj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hxz-ng-c6u" secondAttribute="trailing" constant="50" id="arx-6E-mrH"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lbt-XU-J4Y" secondAttribute="trailing" id="cBi-54-qlX"/>
+                <constraint firstItem="WK8-sd-I9F" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="diu-eo-Osa"/>
+                <constraint firstItem="x9f-6P-lVg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="eH0-Qt-e0S"/>
+                <constraint firstItem="vdq-qD-w6P" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="fWu-fH-Qbg"/>
+                <constraint firstItem="5fl-5W-GUO" firstAttribute="top" secondItem="hxz-ng-c6u" secondAttribute="bottom" constant="12" id="n04-JG-uqi"/>
+                <constraint firstItem="hxz-ng-c6u" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="nkD-Jm-iKU"/>
+                <constraint firstItem="XoG-zk-gBE" firstAttribute="top" secondItem="x9f-6P-lVg" secondAttribute="bottom" constant="12" id="qmP-Wv-DX1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yjs-7V-WrB" secondAttribute="trailing" constant="50" id="rmk-zG-XG3"/>
+                <constraint firstItem="1oN-rB-J96" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vJz-Ou-WQw"/>
+                <constraint firstAttribute="trailing" secondItem="1oN-rB-J96" secondAttribute="trailing" id="y5Q-3V-TG8"/>
+            </constraints>
+            <point key="canvasLocation" x="-394" y="74"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_cancel" width="27" height="27"/>
+        <image name="ic_signup_background" width="1170" height="2532"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

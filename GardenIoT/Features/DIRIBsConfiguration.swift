@@ -16,5 +16,17 @@ extension DIConnector {
         DIContainer.register(SplashBuildable.self) { _, args in
             return SplashBuilder(dependency: args.get())
         }
+
+        DIContainer.register(LoginBuildable.self) { _, args in
+            return LoginBuilder(dependency: args.get())
+        }
+
+        DIContainer.register(SignUpBuildable.self) { _, args in
+            return SignUpBuilder(dependency: args.get())
+        }
+
+        DIContainer.register(HomeBuildable.self) { _, args in
+            return HomeBuilder(dependency: args.get())
+        }
     }
 }
