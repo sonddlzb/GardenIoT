@@ -9,10 +9,6 @@ import UIKit
 import RIBs
 
 public extension Presentable {
-    func showNoInternet(retryAction: (() -> Void)? = nil) {
-        NoInternetView.show(retryAction: retryAction)
-    }
-
     func showNoInternetBanner() {
         NoInternetBannerView.show()
     }

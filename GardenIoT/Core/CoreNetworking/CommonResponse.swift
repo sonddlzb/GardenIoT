@@ -18,7 +18,5 @@ public enum StatusCodeType: String, Error, Codable {
 }
 
 open class CommonResponse<Body: Codable>: Codable {
-    open var errorCode: StatusCodeType
-    open var message: String?
     open var data: Body
 }

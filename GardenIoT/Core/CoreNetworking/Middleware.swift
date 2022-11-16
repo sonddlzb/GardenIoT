@@ -20,8 +20,7 @@ public class PassthroughMiddleware: NetworkMiddleware {
 
 public class SolarCatchErrorMiddleware: NetworkMiddleware {
     private class Response: Codable {
-        var errorCode: StatusCodeType
-        var message: String?
+        var message1: String?
     }
 
     public init() {
@@ -31,10 +30,9 @@ public class SolarCatchErrorMiddleware: NetworkMiddleware {
     public func processData(data: Data) -> Observable<Data> {
         do {
             let response = try NetworkUtils.decodeAPIResponse(type: Response.self, data: data)
-
-            if response.errorCode != .success {
-                return Observable.error(response.errorCode)
-            }
+//            if response.errorCode != .success {
+//                return Observable.error(response.errorCode)
+//            }
 
             return Observable.just(data)
         } catch {

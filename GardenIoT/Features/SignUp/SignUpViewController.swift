@@ -11,9 +11,11 @@ import UIKit
 
 protocol SignUpPresentableListener: AnyObject {
     func didTapCancelButton()
+    func didTapSignUpButton()
+    func didEndEditTextField(username: String, password: String, confirmPassword: String, name: String, address: String, phoneNumber: String)
 }
 
-final class SignUpViewController: UIViewController, SignUpPresentable, SignUpViewControllable {
+final class SignUpViewController: UIViewController, SignUpViewControllable {
     // MARK: - Outlets
     @IBOutlet private weak var cancelButton: TapableView!
     @IBOutlet private weak var nameTextField: SolarTextField!
@@ -22,9 +24,11 @@ final class SignUpViewController: UIViewController, SignUpPresentable, SignUpVie
     @IBOutlet private weak var usernameTextField: SolarTextField!
     @IBOutlet private weak var passwordTextField: PasswordTextField!
     @IBOutlet private weak var confirmPasswordTextField: PasswordTextField!
+    @IBOutlet private weak var emptyLabel: UILabel!
 
     weak var listener: SignUpPresentableListener?
     var viewModel: LoginViewModel!
+    var didTapSignUpButtonBefore = false
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -91,7 +95,7 @@ final class SignUpViewController: UIViewController, SignUpPresentable, SignUpVie
         self.confirmPasswordTextField.isHighlightedWhenEditting = true
         self.confirmPasswordTextField.backgroundColor = UIColor(rgb: 0xF7F7F7)
         self.confirmPasswordTextField.borderColor = UIColor(rgb: 0x575FCC)
-        self.confirmPasswordTextField.placeholder = "Password"
+        self.confirmPasswordTextField.placeholder = "Confirm Password"
         self.confirmPasswordTextField.paddingLeft = 10
         self.confirmPasswordTextField.delegate = self
     }
@@ -100,6 +104,20 @@ final class SignUpViewController: UIViewController, SignUpPresentable, SignUpVie
     @IBAction func cancelButtonDidTap(_ sender: Any) {
         self.listener?.didTapCancelButton()
     }
+
+    @IBAction func signUpButtonDidTap(_ sender: Any) {
+        self.didTapSignUpButtonBefore = true
+        self.listener?.didTapSignUpButton()
+    }
+
+    @objc func textFieldDidChange() {
+        self.listener?.didEndEditTextField(username: self.usernameTextField.text,
+                                           password: self.passwordTextField.text,
+                                           confirmPassword: self.confirmPasswordTextField.text,
+                                           name: self.nameTextField.text,
+                                           address: self.addressTextField.text,
+                                           phoneNumber: self.phoneNumberTextField.text)
+    }
 }
 
 // MARK: - SolarTextFieldDelegate
@@ -107,10 +125,24 @@ extension SignUpViewController: SolarTextFieldDelegate {
     func solarTextField(_ textField: SolarTextField, willChangeToText text: String) -> Bool {
         return true
     }
+
+    func solarTextField(addTextFieldChangedValueObserverTo textField: PaddingTextField) {
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
 }
 
 extension SignUpViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+}
+
+// MARK: - SignUpPresentable
+extension SignUpViewController: SignUpPresentable {
+    func bind(viewModel: SignUpViewModel) {
+        self.loadViewIfNeeded()
+        if self.didTapSignUpButtonBefore {
+            self.emptyLabel.isHidden = !viewModel.isEmpty()
+        }
     }
 }

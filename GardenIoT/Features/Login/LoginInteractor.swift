@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import SVProgressHUD
 
 protocol LoginRouting: ViewableRouting {
     func routeToSignUp()
@@ -46,14 +47,21 @@ final class LoginInteractor: PresentableInteractor<LoginPresentable>, LoginInter
     }
 
     func login() {
-//        self.networkService.login(username: self.viewModel.username, password: self.viewModel.password).subscribe(onNext: { loginResponse in
-//            print("login success")
-//            self.listener?.didLoginSuccess()
-//        }, onError: { error in
-//            print("login failed with error: \(error)")
-//            self.listener?.didLoginSuccess()
-//        }).disposeOnDeactivate(interactor: self)
-        self.listener?.didLoginSuccess()
+        guard !self.viewModel.checkEmpty() else {
+            self.presenter.bind(viewModel: self.viewModel)
+            return
+        }
+
+        SVProgressHUD.show()
+        self.networkService.login(username: self.viewModel.username, password: self.viewModel.password).subscribe(onNext: { loginResponse in
+            AuthorizationHelper.shared.saveToken(loginResponse.accessToken)
+            SVProgressHUD.dismiss()
+            self.listener?.didLoginSuccess()
+        }, onError: { error in
+            SVProgressHUD.dismiss()
+            FailedDialog.show(title: "Failed to sign in!", message: "Please check your username or password and try again.")
+        }).disposeOnDeactivate(interactor: self)
+        self.presenter.bind(viewModel: self.viewModel)
     }
 }
 

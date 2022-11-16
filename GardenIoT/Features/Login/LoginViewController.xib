@@ -132,7 +132,8 @@
                         <action selector="signUpButtonDidTap:" destination="-1" eventType="touchUpInside" id="PLG-Gy-3rR"/>
                     </connections>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input field must not be empty!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-Ww-7Gn">
+
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input field must not be empty!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-Ww-7Gn">
                     <rect key="frame" x="50" y="412.5" width="314" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="Obo-BV-MUf"/>

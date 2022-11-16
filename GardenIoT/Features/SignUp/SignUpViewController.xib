@@ -22,6 +22,7 @@
                 <outlet property="addressTextField" destination="hxz-ng-c6u" id="uFq-eb-YFf"/>
                 <outlet property="cancelButton" destination="KH0-Ay-Fei" id="Nfy-rs-Vzw"/>
                 <outlet property="confirmPasswordTextField" destination="WK8-sd-I9F" id="ZdW-DL-aqJ"/>
+                <outlet property="emptyLabel" destination="qtd-vk-OnC" id="hgy-Lq-HYc"/>
                 <outlet property="nameTextField" destination="x9f-6P-lVg" id="6jx-1j-ueg"/>
                 <outlet property="passwordTextField" destination="yjs-7V-WrB" id="NWF-Vg-hT3"/>
                 <outlet property="phoneNumberTextField" destination="XoG-zk-gBE" id="gjx-IC-q4b"/>
@@ -147,7 +148,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQS-a8-8Tl" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="112" y="528" width="190" height="40"/>
+                    <rect key="frame" x="112" y="540" width="190" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJK-SQ-rTz">
                             <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
@@ -170,7 +171,19 @@
                             <real key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="signUpButtonDidTap:" destination="-1" eventType="touchUpInside" id="OKd-dz-CsR"/>
+                    </connections>
                 </view>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input field must not be empty!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-vk-OnC">
+                    <rect key="frame" x="50" y="511" width="314" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="Gki-Jz-Qpa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -181,19 +194,22 @@
                 <constraint firstItem="yjs-7V-WrB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="FJQ-5q-Xb2"/>
                 <constraint firstItem="WK8-sd-I9F" firstAttribute="top" secondItem="yjs-7V-WrB" secondAttribute="bottom" constant="12" id="Fu1-Iy-2Qt"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WK8-sd-I9F" secondAttribute="trailing" constant="50" id="I3G-BC-fv9"/>
+                <constraint firstItem="qtd-vk-OnC" firstAttribute="top" secondItem="WK8-sd-I9F" secondAttribute="bottom" constant="3" id="I6E-Oy-ZTP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5fl-5W-GUO" secondAttribute="trailing" constant="50" id="Kht-gN-QWE"/>
                 <constraint firstItem="Lbt-XU-J4Y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="LTM-5U-m56"/>
-                <constraint firstItem="hQS-a8-8Tl" firstAttribute="top" secondItem="WK8-sd-I9F" secondAttribute="bottom" constant="20" id="Lxh-S4-02l"/>
+                <constraint firstItem="hQS-a8-8Tl" firstAttribute="top" secondItem="WK8-sd-I9F" secondAttribute="bottom" constant="32" id="Lxh-S4-02l"/>
                 <constraint firstAttribute="bottom" secondItem="1oN-rB-J96" secondAttribute="bottom" id="RVj-qt-0ab"/>
                 <constraint firstItem="1oN-rB-J96" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="T2Q-eE-7XH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XoG-zk-gBE" secondAttribute="trailing" constant="50" id="W8t-Ds-qaA"/>
                 <constraint firstItem="Lbt-XU-J4Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="Xgl-n7-PWV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="x9f-6P-lVg" secondAttribute="trailing" constant="50" id="XjX-6a-MXw"/>
                 <constraint firstItem="vdq-qD-w6P" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="Xms-yx-5GG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qtd-vk-OnC" secondAttribute="trailing" constant="50" id="Xzz-aZ-VFI"/>
                 <constraint firstItem="yjs-7V-WrB" firstAttribute="top" secondItem="5fl-5W-GUO" secondAttribute="bottom" constant="12" id="Yg0-RF-GjP"/>
                 <constraint firstItem="hQS-a8-8Tl" firstAttribute="centerX" secondItem="1oN-rB-J96" secondAttribute="centerX" id="a6T-5F-u5z"/>
                 <constraint firstItem="x9f-6P-lVg" firstAttribute="top" secondItem="vdq-qD-w6P" secondAttribute="bottom" constant="50" id="a8L-8U-bLj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hxz-ng-c6u" secondAttribute="trailing" constant="50" id="arx-6E-mrH"/>
+                <constraint firstItem="qtd-vk-OnC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="b43-Pf-035"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lbt-XU-J4Y" secondAttribute="trailing" id="cBi-54-qlX"/>
                 <constraint firstItem="WK8-sd-I9F" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="diu-eo-Osa"/>
                 <constraint firstItem="x9f-6P-lVg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="eH0-Qt-e0S"/>
