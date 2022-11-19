@@ -8,9 +8,8 @@ import Foundation
 import UIKit
 public enum HomeTab: String {
     case home = "home"
-    case daily = "daily"
-    case create = "create"
-    case artworks = "artworks"
+    case device = "device"
+    case profile = "profile"
 
     func getItemName() -> String {
         return self.rawValue.capitalized

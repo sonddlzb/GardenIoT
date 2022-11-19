@@ -87,7 +87,7 @@ class HomeItemTabBarView: TapableView {
 
         UIView.animate(withDuration: 0.15, delay: 0, options: .curveLinear, animations: {
             self.imageView.image = self.homeTab.getItemImage(isFocus: self.isFocus)
-            self.nameLabel.textColor = UIColor(rgb: self.isFocus ? 0xFFB623 : 0x212121)
+            self.nameLabel.textColor = UIColor(rgb: self.isFocus ? 0x2DDA93 : 0x212121)
             self.nameLabel.font = self.isFocus ? Outfit.mediumFont(size: HomeItemTabBarViewConst.nameSize) : Outfit.regularFont(size: HomeItemTabBarViewConst.nameSize)
             self.imageViewTopConstraint.constant = self.isFocus ? 3.0 : 10.0
             self.curveImageViewTopConstraint.constant = self.isFocus ? -HomeItemTabBarViewConst.curvedHeight : 0

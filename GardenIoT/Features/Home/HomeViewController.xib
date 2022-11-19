@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rzr-qE-7yX">
-                    <rect key="frame" x="0.0" y="44" width="414" height="762"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="806"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbJ-j1-LYY">
@@ -61,7 +61,7 @@
                 <constraint firstItem="nbJ-j1-LYY" firstAttribute="top" secondItem="Rzr-qE-7yX" secondAttribute="bottom" id="ZWQ-JV-M31"/>
                 <constraint firstAttribute="bottom" secondItem="nbJ-j1-LYY" secondAttribute="bottom" id="blS-dT-Ukh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Rzr-qE-7yX" secondAttribute="trailing" id="cje-Ht-Jrd"/>
-                <constraint firstItem="Rzr-qE-7yX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="tkt-ru-Muz"/>
+                <constraint firstItem="Rzr-qE-7yX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tkt-ru-Muz"/>
                 <constraint firstItem="Rzr-qE-7yX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="utf-b7-7Wl"/>
             </constraints>
             <point key="canvasLocation" x="-394" y="74"/>

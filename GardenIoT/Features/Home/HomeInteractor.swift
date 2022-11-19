@@ -9,6 +9,7 @@ import RIBs
 import RxSwift
 
 protocol HomeRouting: ViewableRouting {
+    func routeToTab(_ tab: HomeTab)
 }
 
 protocol HomePresentable: Presentable {
@@ -18,7 +19,7 @@ protocol HomePresentable: Presentable {
 protocol HomeListener: AnyObject {
 }
 
-final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteractable, HomePresentableListener {
+final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteractable {
 
     weak var router: HomeRouting?
     weak var listener: HomeListener?
@@ -30,9 +31,17 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
 
     override func didBecomeActive() {
         super.didBecomeActive()
+        print(AuthorizationHelper.shared.getToken())
     }
 
     override func willResignActive() {
         super.willResignActive()
+    }
+}
+
+// MARK: - HomePresentableListener
+extension HomeInteractor: HomePresentableListener {
+    func didSelectAt(tab: HomeTab) {
+        self.router?.routeToTab(tab)
     }
 }

@@ -54,7 +54,15 @@ class AlamofireClient: NetworkClient {
             .responseData { response in
                 if let error = self.errorFromResponse(response) {
                     TLLogging.log("📬 Received error \(error) from request: \n\(response.request!.cURL)")
-                    observer.onError(error)
+                    if error as! CoreNetworkingError == CoreNetworkingError.clientError {
+                        if let data = response.value {
+                            TLLogging.log("📬 Received response from request: \n\(response.request!.cURL)")
+                            observer.onNext(data)
+                        }
+                    } else {
+                        observer.onError(error)
+                    }
+
                     return
                 }
 

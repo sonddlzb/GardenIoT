@@ -10,6 +10,7 @@ import RxSwift
 import UIKit
 
 protocol HomePresentableListener: AnyObject {
+    func didSelectAt(tab: HomeTab)
 }
 
 final class HomeViewController: UIViewController, HomePresentable {
@@ -39,7 +40,7 @@ final class HomeViewController: UIViewController, HomePresentable {
 // MARK: - HomeTabBarDelegate
 extension HomeViewController: HomeTabBarDelegate {
     func homeTabBar(_ homeTabBar: HomeTabBar, didSelect homeTab: HomeTab) {
-
+        self.listener?.didSelectAt(tab: homeTab)
     }
 }
 

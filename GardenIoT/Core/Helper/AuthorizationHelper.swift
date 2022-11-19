@@ -14,10 +14,6 @@ public struct AuthorizationConst {
 class AuthorizationHelper {
     static var shared = AuthorizationHelper()
     func saveToken(_ token: String) {
-        guard self.getToken() == nil else {
-            return
-        }
-
         UserDefaults.standard.set(token, forKey: AuthorizationConst.authorizationKey)
     }
 

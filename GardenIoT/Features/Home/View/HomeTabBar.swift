@@ -46,7 +46,7 @@ class HomeTabBar: UIView {
     }
 
     private func addTopShadow() {
-        self.layer.shadowColor = UIColor(rgb: 0xFFB623).cgColor
+        self.layer.shadowColor = UIColor(rgb: 0x2DDA93).cgColor
         self.layer.shadowOffset = CGSize(width: 0.0, height: -3.0)
         self.layer.shadowOpacity = 0.4
         self.layer.shadowRadius = 4.0
