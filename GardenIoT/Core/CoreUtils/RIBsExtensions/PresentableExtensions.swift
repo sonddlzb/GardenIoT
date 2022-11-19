@@ -16,8 +16,4 @@ public extension Presentable {
     func dismissInternetBanner() {
         NoInternetBannerView.dismiss()
     }
-
-    func showSomethingWrongError() {
-        TimeoutDialog.show()
-    }
 }

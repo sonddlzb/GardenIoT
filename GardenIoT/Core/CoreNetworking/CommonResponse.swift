@@ -20,3 +20,7 @@ public enum StatusCodeType: String, Error, Codable {
 open class CommonResponse<Body: Codable>: Codable {
     open var data: Body
 }
+
+open class ClientFailedResponse<String: Codable>: Codable {
+    open var message: String
+}

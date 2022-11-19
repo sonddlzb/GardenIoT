@@ -8,14 +8,6 @@
 import Foundation
 
 class LoginResponse {
-    var authorization: String
-
-    init(authorization: String) {
-        self.authorization = authorization
-    }
-
-    init(entity: LoginResponseEntity) {
-        self.authorization = entity.authorization
     var accessToken: String
 
     init(accessToken: String) {

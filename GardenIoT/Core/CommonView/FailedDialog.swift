@@ -1,5 +1,5 @@
 //
-//  TimeoutDialog.swift
+//  FailedDialog.swift
 //  ColoringByPixel
 //
 //  Created by đào sơn on 12/09/2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class TimeoutDialog: UIView {
+final class FailedDialog: UIView {
 
-    static var shared = TimeoutDialog()
+    static var shared = FailedDialog()
 
     private var imageView: UIImageView!
     private var containerView: UIView!
@@ -146,7 +146,7 @@ final class TimeoutDialog: UIView {
     }
 
     // MARK: - Static function
-    static func show() {
+    static func show(title: String, message: String) {
         guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
               shared.superview == nil else {
             return
@@ -155,6 +155,8 @@ final class TimeoutDialog: UIView {
         shared.alpha = 0
         window.addSubview(shared)
         shared.fitSuperviewConstraint()
+        shared.titleLabel.text = title
+        shared.messageLabel.text = message
 
         UIView.animate(withDuration: 0.15) {
             shared.alpha = 1

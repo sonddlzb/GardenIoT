@@ -45,8 +45,13 @@ class RegisterAPI: HttpEndpoint {
         ]
     }
 
-    func convertObject(data: Data) throws -> LoginResponse {
-        let response = try JSONDecoder().decode(CommonResponse<LoginResponseEntity>.self, from: data)
-        return LoginResponse(entity: response.data)
+    func convertObject(data: Data) throws -> Any {
+        do {
+            let response = try JSONDecoder().decode(CommonResponse<LoginResponseEntity>.self, from: data)
+            return LoginResponse(entity: response.data)
+        } catch {
+            let response = try JSONDecoder().decode(ClientFailedResponse<String>.self, from: data)
+            return response.message
+        }
     }
 }

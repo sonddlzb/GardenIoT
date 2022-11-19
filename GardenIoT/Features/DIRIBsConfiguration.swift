@@ -28,5 +28,9 @@ extension DIConnector {
         DIContainer.register(HomeBuildable.self) { _, args in
             return HomeBuilder(dependency: args.get())
         }
+
+        DIContainer.register(ProfileBuildable.self) { _, args in
+            return ProfileBuilder(dependency: args.get())
+        }
     }
 }

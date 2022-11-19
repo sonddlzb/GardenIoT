@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import SVProgressHUD
 
 protocol SignUpRouting: ViewableRouting {
 }
@@ -61,10 +62,18 @@ extension SignUpInteractor: SignUpPresentableListener {
             return
         }
 
+        SVProgressHUD.show()
         self.networkService.register(username: self.viewModel.username, password: self.viewModel.password, name: self.viewModel.name, address: self.viewModel.address, phoneNumber: self.viewModel.phoneNumber).subscribe(onNext: { registerResponse in
-            AuthorizationHelper.shared.saveToken(registerResponse.accessToken)
+            SVProgressHUD.dismiss()
+            if let response = registerResponse as? LoginResponse {
+            AuthorizationHelper.shared.saveToken(response.accessToken)
+            self.listener?.signUpWantToDismiss()
+            } else {
+                FailedDialog.show(title: "Failed to sign up!", message: registerResponse as! String)
+            }
        }, onError: { error in
             FailedDialog.show(title: "Failed to sign up!", message: "Please check your information and try again.")
+           SVProgressHUD.dismiss()
         }).disposeOnDeactivate(interactor: self)
         self.presenter.bind(viewModel: self.viewModel)
     }

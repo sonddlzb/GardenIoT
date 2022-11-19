@@ -10,6 +10,11 @@ import Foundation
 extension RootInteractor: SplashListener {
     func dismissSplash() {
         self.router?.dismissSplash()
-        self.router?.routeToLogin()
+        if AuthorizationHelper.shared.getToken() == nil {
+            self.router?.routeToLogin()
+        } else {
+            self.router?.routeToHome()
+        }
+//        self.router?.routeToLogin()
     }
 }
