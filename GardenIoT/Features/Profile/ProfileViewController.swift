@@ -15,6 +15,8 @@ private struct Const {
 }
 
 protocol ProfilePresentableListener: AnyObject {
+    func didSelect(option: ProfileOption)
+    func didTapConfirmToSignOut()
 }
 
 final class ProfileViewController: UIViewController, ProfileViewControllable {
@@ -28,7 +30,7 @@ final class ProfileViewController: UIViewController, ProfileViewControllable {
 
     // MARK: - Variables
     weak var listener: ProfilePresentableListener?
-    var viewModel = ProfileViewModel .makeEmpty()
+    var viewModel = ProfileViewModel.makeEmpty()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -63,12 +65,18 @@ extension ProfileViewController: ProfilePresentable {
         self.phoneImageView.isHidden = false
         self.locationImageView.isHidden = false
     }
+
+    func showConfirmDialog() {
+        ConfirmDialog.shared.delegate = self
+        ConfirmDialog.show(message: "Do you really want to sign out?")
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueCell(type: ProfileCell.self, indexPath: indexPath)!
+        cell.delegate = self
         cell.bind(viewModel: viewModel.item(at: indexPath.row))
 
         return cell
@@ -79,9 +87,22 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
-// MARK: -
+// MARK: - UICollectionViewDelegateFlowLayout
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width - Const.contentInset.left - Const.contentInset.right, height: Const.optionHeight)
+    }
+}
+
+// MARK: - ProfileCellDelegate
+extension ProfileViewController: ProfileCellDelegate {
+    func profileCell(_ profileCell: ProfileCell, didSelect option: ProfileOption) {
+        self.listener?.didSelect(option: option)
+    }
+}
+
+extension ProfileViewController: ConfirmDialogDelegate {
+    func confirmDialogDidTapConfirm(_ confirmDialog: ConfirmDialog) {
+        self.listener?.didTapConfirmToSignOut()
     }
 }

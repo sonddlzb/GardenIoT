@@ -54,6 +54,9 @@
                             <constraint firstItem="yuG-Ef-BRs" firstAttribute="leading" secondItem="c1u-mT-GlQ" secondAttribute="leading" id="rf2-vu-sgi"/>
                             <constraint firstAttribute="bottom" secondItem="c1u-mT-GlQ" secondAttribute="bottom" constant="1" id="vpo-o6-dG4"/>
                         </constraints>
+                        <connections>
+                            <action selector="didTapContentView:" destination="gTV-IL-0wX" eventType="touchUpInside" id="BMv-QA-dzK"/>
+                        </connections>
                     </view>
                 </subviews>
             </view>

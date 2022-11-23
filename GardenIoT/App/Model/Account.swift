@@ -32,4 +32,8 @@ class Account {
         self.username = entity.username
         self.role = entity.role
     }
+
+    func makeACopy() -> Account {
+        return Account(id: self.id, name: self.name, phoneNumber: self.phoneNumber, address: self.address, username: self.username, role: self.role)
+    }
 }

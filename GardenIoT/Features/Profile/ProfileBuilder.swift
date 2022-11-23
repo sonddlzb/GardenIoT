@@ -31,6 +31,9 @@ final class ProfileBuilder: Builder<ProfileDependency>, ProfileBuildable {
         let viewController = ProfileViewController()
         let interactor = ProfileInteractor(presenter: viewController)
         interactor.listener = listener
-        return ProfileRouter(interactor: interactor, viewController: viewController)
+        let detailsBuilder = DIContainer.resolve(DetailsBuildable.self, agrument: component)
+        return ProfileRouter(interactor: interactor,
+                             viewController: viewController,
+                             detailsBuilder: detailsBuilder)
     }
 }
