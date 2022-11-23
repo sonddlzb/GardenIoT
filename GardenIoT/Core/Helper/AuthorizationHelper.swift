@@ -20,4 +20,13 @@ class AuthorizationHelper {
     func getToken() -> String? {
         return UserDefaults.standard.string(forKey: AuthorizationConst.authorizationKey)
     }
+
+    func deleteCurrentToken() {
+        guard self.getToken() != nil else {
+            return
+        }
+
+        UserDefaults.standard.removeObject(forKey: AuthorizationConst.authorizationKey)
+        print(self.getToken())
+    }
 }
