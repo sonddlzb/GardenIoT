@@ -17,7 +17,7 @@ final class ProfileComponent: Component<ProfileDependency> {
 // MARK: - Builder
 
 protocol ProfileBuildable: Buildable {
-    func build(withListener listener: ProfileListener) -> ProfileRouting
+    func build(withListener listener: ProfileListener, account: Account?) -> ProfileRouting
 }
 
 final class ProfileBuilder: Builder<ProfileDependency>, ProfileBuildable {
@@ -26,10 +26,10 @@ final class ProfileBuilder: Builder<ProfileDependency>, ProfileBuildable {
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: ProfileListener) -> ProfileRouting {
+    func build(withListener listener: ProfileListener, account: Account?) -> ProfileRouting {
         let component = ProfileComponent(dependency: dependency)
         let viewController = ProfileViewController()
-        let interactor = ProfileInteractor(presenter: viewController)
+        let interactor = ProfileInteractor(presenter: viewController, account: account)
         interactor.listener = listener
         let detailsBuilder = DIContainer.resolve(DetailsBuildable.self, agrument: component)
         return ProfileRouter(interactor: interactor,

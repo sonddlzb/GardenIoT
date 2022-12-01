@@ -93,6 +93,7 @@ final class DetailsViewController: BaseViewControler, DetailsViewControllable {
             self.listener?.didFinishUpdateAccount(isSaved: true)
         } else {
             editLabel.text = "Save"
+            nameTextField.becomeFirstResponder()
         }
 
         self.isOnEditMode = !self.isOnEditMode

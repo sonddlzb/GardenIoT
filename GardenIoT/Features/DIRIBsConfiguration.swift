@@ -36,5 +36,21 @@ extension DIConnector {
         DIContainer.register(DetailsBuildable.self) { _, args in
             return DetailsBuilder(dependency: args.get())
         }
+
+        DIContainer.register(DeviceBuildable.self) { _, args in
+            return DeviceBuilder(dependency: args.get())
+        }
+
+        DIContainer.register(DeviceBuildable.self) { _, args in
+            return DeviceBuilder(dependency: args.get())
+        }
+
+        DIContainer.register(GardenBuildable.self) { _, args in
+            return GardenBuilder(dependency: args.get())
+        }
+
+        DIContainer.register(GardenDetailsBuildable.self) { _, args in
+            return GardenDetailsBuilder(dependency: args.get())
+        }
     }
 }

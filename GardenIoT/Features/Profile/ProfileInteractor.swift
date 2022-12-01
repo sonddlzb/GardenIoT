@@ -12,6 +12,7 @@ import SVProgressHUD
 protocol ProfileRouting: ViewableRouting {
     func routeToDetails(account: Account)
     func dismissDetails()
+    func updateUserInfor(account: Account)
 }
 
 protocol ProfilePresentable: Presentable {
@@ -25,21 +26,32 @@ protocol ProfileListener: AnyObject {
     func profileWantToSignOut()
 }
 
-final class ProfileInteractor: PresentableInteractor<ProfilePresentable>, ProfileInteractable {
+final class ProfileInteractor: PresentableInteractor<ProfilePresentable> {
 
     weak var router: ProfileRouting?
     weak var listener: ProfileListener?
     @DIInjected var networkService: NetworkService
     var viewModel: ProfileViewModel!
+    private var isNeedToLoadUserInfor = true
 
-    override init(presenter: ProfilePresentable) {
+    init(presenter: ProfilePresentable, account: Account?) {
         super.init(presenter: presenter)
         presenter.listener = self
+        if let account = account {
+            self.viewModel = ProfileViewModel(account: account)
+            self.isNeedToLoadUserInfor = false
+        } else {
+            self.isNeedToLoadUserInfor = true
+        }
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        self.getUserInfor()
+        if self.isNeedToLoadUserInfor {
+            self.getUserInfor()
+        } else {
+            self.presenter.bind(viewModel: self.viewModel)
+        }
     }
 
     override func willResignActive() {
@@ -54,7 +66,7 @@ final class ProfileInteractor: PresentableInteractor<ProfilePresentable>, Profil
                 self.presenter.bind(viewModel: self.viewModel)
             }, onError: { error in
                 print("Failed to get user infor with error \(error)")
-            })
+            }).disposeOnDeactivate(interactor: self)
         }
     }
 
@@ -85,5 +97,13 @@ extension ProfileInteractor: ProfilePresentableListener {
             SVProgressHUD.dismiss()
             self.listener?.profileWantToSignOut()
         })
+    }
+}
+
+// MARK: - ProfileInteractable
+extension ProfileInteractor: ProfileInteractable {
+    func updateUserInfor(account: Account) {
+        self.viewModel = ProfileViewModel(account: account)
+        self.presenter.bind(viewModel: self.viewModel)
     }
 }

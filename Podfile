@@ -20,6 +20,7 @@ target 'GardenIoT' do
   pod 'Alamofire'
   pod 'SVProgressHUD'
   pod 'SDWebImage'
+  pod 'CocoaMQTT'
   RxSwiftPod()
   RIBsPod()
 

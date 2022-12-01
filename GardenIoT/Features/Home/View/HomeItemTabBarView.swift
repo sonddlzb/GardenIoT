@@ -8,7 +8,7 @@
 import UIKit
 
 private struct HomeItemTabBarViewConst {
-    static var curvedHeight = 7.0
+    static var curvedHeight = 6.0
     static let nameSize: CGFloat = 11
 }
 
