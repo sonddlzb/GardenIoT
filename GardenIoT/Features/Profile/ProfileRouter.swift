@@ -10,6 +10,8 @@ import RIBs
 protocol ProfileInteractable: Interactable, DetailsListener {
     var router: ProfileRouting? { get set }
     var listener: ProfileListener? { get set }
+
+    func updateUserInfor(account: Account)
 }
 
 protocol ProfileViewControllable: ViewControllable {
@@ -47,5 +49,9 @@ extension ProfileRouter: ProfileRouting {
         self.viewControllable.dismiss()
         self.detachChild(router)
         self.detailsRouter = nil
+    }
+
+    func updateUserInfor(account: Account) {
+        self.interactor.updateUserInfor(account: account)
     }
 }

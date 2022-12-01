@@ -13,6 +13,7 @@ protocol NetworkService {
     func register(username: String, password: String, name: String, address: String, phoneNumber: String) -> Observable<Any>
     func getUserInfor(accessToken: String) -> Observable<Account>
     func updateUserInfor(accessToken: String, userId: String, account: Account) -> Observable<Any>
+    func getAllGardens(accessToken: String) -> Observable<[Garden]>
 }
 
 final class NetworkServiceImpl: NetworkService {
@@ -30,5 +31,9 @@ final class NetworkServiceImpl: NetworkService {
 
     func updateUserInfor(accessToken: String, userId: String, account: Account) -> Observable<Any> {
         return UpdateUserInforAPI(accessToken: accessToken, userId: userId, account: account).execute()
+    }
+
+    func getAllGardens(accessToken: String) -> Observable<[Garden]> {
+        return GetAllGardensAPI(accessToken: accessToken).execute()
     }
 }

@@ -10,6 +10,7 @@ import RxSwift
 
 protocol HomeRouting: ViewableRouting {
     func routeToTab(_ tab: HomeTab)
+    func didFinishGetUserInfor(account: Account)
 }
 
 protocol HomePresentable: Presentable {
@@ -24,6 +25,7 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
 
     weak var router: HomeRouting?
     weak var listener: HomeListener?
+    @DIInjected var networkService: NetworkService
 
     override init(presenter: HomePresentable) {
         super.init(presenter: presenter)
@@ -32,11 +34,23 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
 
     override func didBecomeActive() {
         super.didBecomeActive()
+        self.router?.routeToTab(.home)
+        self.getUserInfor()
         print(AuthorizationHelper.shared.getToken())
     }
 
     override func willResignActive() {
         super.willResignActive()
+    }
+
+    func getUserInfor() {
+        if let accessToken = AuthorizationHelper.shared.getToken() {
+            networkService.getUserInfor(accessToken: accessToken).subscribe(onNext: { account in
+                self.router?.didFinishGetUserInfor(account: account)
+            }, onError: { error in
+                print("Failed to get user infor with error \(error)")
+            }).disposeOnDeactivate(interactor: self)
+        }
     }
 }
 

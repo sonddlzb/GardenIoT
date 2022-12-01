@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeviceViewController">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="jYO-eb-xeE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_device_background" translatesAutoresizingMaskIntoConstraints="NO" id="jc7-th-rtZ">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5A-5P-yUN" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
+                    <rect key="frame" x="334" y="762" width="60" height="60"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_plus_black" translatesAutoresizingMaskIntoConstraints="NO" id="zN8-ER-CIk">
+                            <rect key="frame" x="18" y="18" width="24" height="24"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="zN8-ER-CIk" firstAttribute="centerX" secondItem="p5A-5P-yUN" secondAttribute="centerX" id="V2j-Rq-wqn"/>
+                        <constraint firstAttribute="height" constant="60" id="Vjq-h9-i80"/>
+                        <constraint firstItem="zN8-ER-CIk" firstAttribute="centerY" secondItem="p5A-5P-yUN" secondAttribute="centerY" id="ZA1-Av-Nrk"/>
+                        <constraint firstAttribute="width" constant="60" id="jtn-vy-m3I"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.3529411764705882" green="0.27450980392156865" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="p5A-5P-yUN" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-20" id="QYj-HI-Sig"/>
+                <constraint firstAttribute="bottom" secondItem="jc7-th-rtZ" secondAttribute="bottom" id="a3y-TZ-vJN"/>
+                <constraint firstItem="jc7-th-rtZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aeH-LS-7o6"/>
+                <constraint firstItem="jc7-th-rtZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="d9n-cE-5fB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jc7-th-rtZ" secondAttribute="trailing" id="fQg-IC-lsm"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="p5A-5P-yUN" secondAttribute="bottom" constant="40" id="qjc-iO-LPU"/>
+            </constraints>
+            <point key="canvasLocation" x="-394" y="74"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_device_background" width="1920" height="960"/>
+        <image name="ic_plus_black" width="24" height="24"/>
+    </resources>
+</document>
