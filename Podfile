@@ -21,6 +21,7 @@ target 'GardenIoT' do
   pod 'SVProgressHUD'
   pod 'SDWebImage'
   pod 'CocoaMQTT'
+  pod 'DropDown'
   RxSwiftPod()
   RIBsPod()
 

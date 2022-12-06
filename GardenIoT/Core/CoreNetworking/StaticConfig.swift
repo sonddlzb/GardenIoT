@@ -8,5 +8,5 @@
 import Foundation
 
 struct StaticConfig {
-    static let apiBaseURLString = "https://temperature-control-first-ver.herokuapp.com"
+    static let apiBaseURLString = "http://localhost:3003"
 }

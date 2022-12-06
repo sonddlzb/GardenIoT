@@ -20,22 +20,24 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOV-Pd-1dz">
+                <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOV-Pd-1dz">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrc-at-qTE">
                     <rect key="frame" x="24" y="305" width="366" height="296"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_About Us" translatesAutoresizingMaskIntoConstraints="NO" id="FXY-fT-YKx">
-                            <rect key="frame" x="153" y="20" width="60" height="60"/>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n6R-lj-ZKy" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
                             <rect key="frame" x="10" y="92" width="346" height="50"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="4wc-uq-FYZ"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJ9-P4-Jka" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
                             <rect key="frame" x="10" y="154" width="346" height="50"/>
@@ -43,8 +45,13 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="oTi-vl-Jzj"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL3-2X-vHd" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
+                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL3-2X-vHd" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
                             <rect key="frame" x="93" y="216" width="180" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0G-Zx-n5S">
@@ -59,7 +66,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="0.42352941179999998" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="c0G-Zx-n5S" secondAttribute="bottom" id="1Xe-v1-DfS"/>
                                 <constraint firstAttribute="height" constant="50" id="Bbj-aF-ArG"/>
@@ -68,20 +75,56 @@
                                 <constraint firstAttribute="trailing" secondItem="c0G-Zx-n5S" secondAttribute="trailing" id="TxR-2V-nyg"/>
                                 <constraint firstAttribute="width" constant="180" id="lgQ-Ua-RbB"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="24"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="confirmButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="23B-ov-xo4"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efI-br-1eN">
+                            <rect key="frame" x="94.5" y="10" width="177.5" height="60"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_About Us" translatesAutoresizingMaskIntoConstraints="NO" id="FXY-fT-YKx">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="ELo-QD-Opd"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Garden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjA-EM-i39">
+                                    <rect key="frame" x="65" y="20" width="112.5" height="40"/>
+                                    <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="3FN-gW-vG3"/>
+                                <constraint firstItem="cjA-EM-i39" firstAttribute="leading" secondItem="FXY-fT-YKx" secondAttribute="trailing" constant="5" id="QF7-iC-Tmx"/>
+                                <constraint firstItem="FXY-fT-YKx" firstAttribute="leading" secondItem="efI-br-1eN" secondAttribute="leading" id="cPn-2n-NY1"/>
+                                <constraint firstAttribute="trailing" secondItem="cjA-EM-i39" secondAttribute="trailing" id="h07-Wt-Se5"/>
+                                <constraint firstItem="FXY-fT-YKx" firstAttribute="top" secondItem="efI-br-1eN" secondAttribute="top" id="kec-GT-sIj"/>
+                                <constraint firstItem="cjA-EM-i39" firstAttribute="top" secondItem="efI-br-1eN" secondAttribute="top" constant="20" id="tVq-Xg-UPV"/>
+                                <constraint firstAttribute="bottom" secondItem="cjA-EM-i39" secondAttribute="bottom" id="y2b-8e-pgB"/>
+                                <constraint firstAttribute="bottom" secondItem="FXY-fT-YKx" secondAttribute="bottom" id="zB7-Ql-wvH"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="tL3-2X-vHd" secondAttribute="bottom" constant="30" id="31I-uk-3TA"/>
-                        <constraint firstItem="FXY-fT-YKx" firstAttribute="centerX" secondItem="Hrc-at-qTE" secondAttribute="centerX" id="41q-IY-r4L"/>
-                        <constraint firstItem="n6R-lj-ZKy" firstAttribute="top" secondItem="FXY-fT-YKx" secondAttribute="bottom" constant="12" id="Jrt-xk-xAI"/>
+                        <constraint firstItem="efI-br-1eN" firstAttribute="top" secondItem="Hrc-at-qTE" secondAttribute="top" constant="10" id="EsG-2k-GID"/>
                         <constraint firstItem="aJ9-P4-Jka" firstAttribute="leading" secondItem="Hrc-at-qTE" secondAttribute="leading" constant="10" id="Ne2-kK-pmd"/>
                         <constraint firstItem="tL3-2X-vHd" firstAttribute="top" secondItem="aJ9-P4-Jka" secondAttribute="bottom" constant="12" id="ZGH-1b-F2y"/>
                         <constraint firstAttribute="trailing" secondItem="n6R-lj-ZKy" secondAttribute="trailing" constant="10" id="ZN7-3R-s95"/>
                         <constraint firstItem="n6R-lj-ZKy" firstAttribute="leading" secondItem="Hrc-at-qTE" secondAttribute="leading" constant="10" id="afK-dk-9wv"/>
                         <constraint firstItem="aJ9-P4-Jka" firstAttribute="top" secondItem="n6R-lj-ZKy" secondAttribute="bottom" constant="12" id="b7A-Pm-agW"/>
-                        <constraint firstItem="FXY-fT-YKx" firstAttribute="top" secondItem="Hrc-at-qTE" secondAttribute="top" constant="20" id="fDs-xa-Qh9"/>
                         <constraint firstAttribute="trailing" secondItem="aJ9-P4-Jka" secondAttribute="trailing" constant="10" id="fRn-7a-iso"/>
+                        <constraint firstItem="efI-br-1eN" firstAttribute="centerX" secondItem="Hrc-at-qTE" secondAttribute="centerX" id="hET-4l-RM7"/>
+                        <constraint firstAttribute="height" constant="296" id="hbi-qR-B4h"/>
                         <constraint firstItem="tL3-2X-vHd" firstAttribute="centerX" secondItem="Hrc-at-qTE" secondAttribute="centerX" id="oYc-NI-nyU"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -104,7 +147,8 @@
             </constraints>
             <connections>
                 <outlet property="addressTextField" destination="aJ9-P4-Jka" id="Bqy-qr-oST"/>
-                <outlet property="imageView" destination="FXY-fT-YKx" id="i24-us-Kxg"/>
+                <outlet property="backgroundView" destination="dOV-Pd-1dz" id="j8G-8G-FRR"/>
+                <outlet property="confirmButton" destination="tL3-2X-vHd" id="xol-2J-9Zk"/>
                 <outlet property="nameTextField" destination="n6R-lj-ZKy" id="lo8-bm-qH1"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="54.910714285714285"/>

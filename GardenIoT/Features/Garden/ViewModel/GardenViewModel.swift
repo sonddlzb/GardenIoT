@@ -29,4 +29,8 @@ struct GardenViewModel {
     func garden(at index: Int) -> Garden {
         return self.listGardens[index]
     }
+
+    mutating func add(garden: Garden) {
+        self.listGardens.append(garden)
+    }
 }

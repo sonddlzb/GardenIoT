@@ -14,6 +14,8 @@ protocol NetworkService {
     func getUserInfor(accessToken: String) -> Observable<Account>
     func updateUserInfor(accessToken: String, userId: String, account: Account) -> Observable<Any>
     func getAllGardens(accessToken: String) -> Observable<[Garden]>
+    func addNewGarden(accessToken: String, name: String, address: String) -> Observable<Any>
+    func createNewDevice(accessToken: String, name: String, description: String, gardenId: String) -> Observable<Any>
 }
 
 final class NetworkServiceImpl: NetworkService {
@@ -35,5 +37,13 @@ final class NetworkServiceImpl: NetworkService {
 
     func getAllGardens(accessToken: String) -> Observable<[Garden]> {
         return GetAllGardensAPI(accessToken: accessToken).execute()
+    }
+
+    func addNewGarden(accessToken: String, name: String, address: String) -> Observable<Any> {
+        return AddNewGardenAPI(accessToken: accessToken, name: name, address: address).execute()
+    }
+
+    func createNewDevice(accessToken: String, name: String, description: String, gardenId: String) -> Observable<Any> {
+        return CreateNewDeviceAPI(name: name, description: description, gardenId: gardenId, accessToken: accessToken).execute()
     }
 }

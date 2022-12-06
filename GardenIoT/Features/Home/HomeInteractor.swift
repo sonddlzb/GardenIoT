@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import SVProgressHUD
 
 protocol HomeRouting: ViewableRouting {
     func routeToTab(_ tab: HomeTab)
@@ -44,11 +45,14 @@ final class HomeInteractor: PresentableInteractor<HomePresentable>, HomeInteract
     }
 
     func getUserInfor() {
+        SVProgressHUD.show()
         if let accessToken = AuthorizationHelper.shared.getToken() {
             networkService.getUserInfor(accessToken: accessToken).subscribe(onNext: { account in
                 self.router?.didFinishGetUserInfor(account: account)
+                SVProgressHUD.dismiss()
             }, onError: { error in
                 print("Failed to get user infor with error \(error)")
+                SVProgressHUD.dismiss()
             }).disposeOnDeactivate(interactor: self)
         }
     }

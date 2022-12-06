@@ -15,6 +15,6 @@ extension RootInteractor: SplashListener {
         } else {
             self.router?.routeToHome()
         }
-//        self.router?.routeToLogin()
+//        self.router?.routeToHome()
     }
 }
