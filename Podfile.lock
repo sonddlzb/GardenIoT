@@ -4,6 +4,7 @@ PODS:
     - CocoaMQTT/Core (= 2.0.8)
   - CocoaMQTT/Core (2.0.8):
     - MqttCocoaAsyncSocket (~> 1.0.6)
+  - DropDown (2.3.13)
   - MqttCocoaAsyncSocket (1.0.6)
   - Resolver (1.5.0)
   - RIBs (0.9.3):
@@ -25,6 +26,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - CocoaMQTT
+  - DropDown
   - Resolver
   - RIBs (from `https://github.com/uber/RIBs/`, tag `v0.10.0`)
   - RxCocoa
@@ -38,6 +40,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - CocoaMQTT
+    - DropDown
     - MqttCocoaAsyncSocket
     - Resolver
     - RxCocoa
@@ -61,6 +64,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
   CocoaMQTT: 684ad2bd374e9a8fc64e39235b0542a8c125390a
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
   MqttCocoaAsyncSocket: bb3215101db2a34a0c3ef7a2f86ecb5796ec9384
   Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
   RIBs: d4c4c7e7e4580f0bbe88bdc88b6c11704a738b7f
@@ -72,6 +76,6 @@ SPEC CHECKSUMS:
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
   TLLogging: da818f99577a4629c555d6a6db6d4916878c2b71
 
-PODFILE CHECKSUM: f2f8d9a84760cffcb9e5d4d40a1c86a519e3272d
+PODFILE CHECKSUM: b740689615fbfc0f29b2b3261962357f4e9ca222
 
 COCOAPODS: 1.11.3

@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import SVProgressHUD
 
 protocol GardenRouting: ViewableRouting {
     func routeToGardenDetails(garden: Garden)
@@ -17,6 +18,7 @@ protocol GardenPresentable: Presentable {
     var listener: GardenPresentableListener? { get set }
 
     func bind(viewModel: GardenViewModel)
+    func bindAddNewGardenResult(isSuccess: Bool)
 }
 
 protocol GardenListener: AnyObject {
@@ -44,11 +46,35 @@ final class GardenInteractor: PresentableInteractor<GardenPresentable>, GardenIn
     }
 
     func fetchListGardens() {
+        SVProgressHUD.show()
         if let accessToken = AuthorizationHelper.shared.getToken() {
             networkService.getAllGardens(accessToken: accessToken).subscribe(onNext: { listGardens in
                 print("number of garden:  \(listGardens.count)")
                 self.viewModel = GardenViewModel(listGardens: listGardens)
                 self.presenter.bind(viewModel: self.viewModel)
+                SVProgressHUD.dismiss()
+            }, onError: { error in
+                print("Failed to get gardens infor with error \(error)")
+                SVProgressHUD.dismiss()
+            }).disposeOnDeactivate(interactor: self)
+        }
+    }
+
+    func addNewGarden(name: String, address: String) {
+        SVProgressHUD.show()
+        if let accessToken = AuthorizationHelper.shared.getToken() {
+            networkService.addNewGarden(accessToken: accessToken, name: name, address: address).subscribe(onNext: { responseData in
+                if let garden = responseData as? Garden {
+                    print("create new garden successfully:  \(garden.name)")
+                    self.viewModel.add(garden: garden)
+                    self.presenter.bind(viewModel: self.viewModel)
+                    self.presenter.bindAddNewGardenResult(isSuccess: true)
+                    SVProgressHUD.dismiss()
+                } else {
+                    print("failed to create new garden with message: \(responseData)")
+                    self.presenter.bindAddNewGardenResult(isSuccess: false)
+                    SVProgressHUD.dismiss()
+                }
             }, onError: { error in
                 print("Failed to get gardens infor with error \(error)")
             }).disposeOnDeactivate(interactor: self)
@@ -60,5 +86,9 @@ final class GardenInteractor: PresentableInteractor<GardenPresentable>, GardenIn
 extension GardenInteractor: GardenPresentableListener {
     func didSelect(garden: Garden) {
         self.router?.routeToGardenDetails(garden: garden)
+    }
+
+    func didTapToAddNewGardenWith(name: String, address: String) {
+        self.addNewGarden(name: name, address: address)
     }
 }

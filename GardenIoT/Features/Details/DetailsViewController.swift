@@ -68,7 +68,7 @@ final class DetailsViewController: BaseViewControler, DetailsViewControllable {
         self.addressTextField.isHighlightedWhenEditting = true
         self.addressTextField.backgroundColor = UIColor(rgb: 0xF7F7F7)
         self.addressTextField.borderColor = UIColor(rgb: 0x575FCC)
-        self.addressTextField.placeholder = "Ađdress"
+        self.addressTextField.placeholder = "Address"
         self.addressTextField.paddingLeft = 10
         self.addressTextField.text = self.viewModel.account.address
         self.addressTextField.isUserInteractionEnabled = false
@@ -79,7 +79,7 @@ final class DetailsViewController: BaseViewControler, DetailsViewControllable {
         self.phoneTextField.isHighlightedWhenEditting = true
         self.phoneTextField.backgroundColor = UIColor(rgb: 0xF7F7F7)
         self.phoneTextField.borderColor = UIColor(rgb: 0x575FCC)
-        self.phoneTextField.placeholder = "Phone Number"
+        self.phoneTextField.placeholder = "Phone number"
         self.phoneTextField.paddingLeft = 10
         self.phoneTextField.text = self.viewModel.account.phoneNumber
         self.phoneTextField.isUserInteractionEnabled = false

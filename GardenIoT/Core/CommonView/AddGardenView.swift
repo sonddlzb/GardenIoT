@@ -7,13 +7,28 @@
 
 import UIKit
 
+protocol AddGardenViewDelegate: AnyObject {
+    func addGardenViewDidTapConfirm(_ addGardenView: AddGardenView, name: String, address: String)
+}
+
 class AddGardenView: UIView {
     static var shared = AddGardenView.loadView()
 
     // MARK: - Outlets
     @IBOutlet private weak var nameTextField: SolarTextField!
     @IBOutlet private weak var addressTextField: SolarTextField!
+    @IBOutlet private weak var confirmButton: TapableView!
+    @IBOutlet private weak var backgroundView: UIView!
 
+    // MARK: - Variables
+    private var isGardenInformationValid = false {
+        didSet {
+            self.confirmButton.isUserInteractionEnabled = isGardenInformationValid
+            self.confirmButton.backgroundColor = isGardenInformationValid ? UIColor(rgb: 0xFF6C39) : UIColor(rgb: 0xDDDDDD)
+        }
+    }
+
+    weak var delegate: AddGardenViewDelegate?
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,20 +41,32 @@ class AddGardenView: UIView {
     }
 
     private func configNameTextField() {
-
+        self.nameTextField.isHighlightedWhenEditting = true
+        self.nameTextField.backgroundColor = UIColor(rgb: 0xF7F7F7)
+        self.nameTextField.borderColor = UIColor(rgb: 0x575FCC)
+        self.nameTextField.placeholder = "Name"
+        self.nameTextField.paddingLeft = 10
+        self.nameTextField.delegate = self
+        self.becomeFirstResponder()
     }
 
     private func configAddressTextField() {
-
+        self.addressTextField.isHighlightedWhenEditting = true
+        self.addressTextField.backgroundColor = UIColor(rgb: 0xF7F7F7)
+        self.addressTextField.borderColor = UIColor(rgb: 0x575FCC)
+        self.addressTextField.placeholder = "Address"
+        self.addressTextField.paddingLeft = 10
+        self.addressTextField.delegate = self
     }
 
     // MARK: - Action
     @IBAction func confirmButtonDidTap(_ sender: Any) {
+        self.delegate?.addGardenViewDidTapConfirm(self, name: self.nameTextField.text, address: self.addressTextField.text)
         self.dismiss()
     }
 
-    @IBAction func cancelButtonDidTap(_ sender: Any) {
-        self.dismiss()
+    @objc func textFieldDidChange() {
+        self.isGardenInformationValid = !(self.nameTextField.text.isEmpty || self.addressTextField.text.isEmpty)
     }
 
     // MARK: - Helper
@@ -81,5 +108,25 @@ class AddGardenView: UIView {
 
     static func loadView() -> AddGardenView {
         return AddGardenView.loadView(fromNib: "AddGardenView")!
+    }
+}
+
+// MARK: - SolarTextFieldDelegate
+extension AddGardenView: SolarTextFieldDelegate {
+    func solarTextField(_ textField: SolarTextField, willChangeToText text: String) -> Bool {
+        return true
+    }
+
+    func solarTextField(addTextFieldChangedValueObserverTo textField: PaddingTextField) {
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+}
+
+extension AddGardenView {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        if touches.first?.view == self.backgroundView {
+            self.dismiss()
+        }
     }
 }

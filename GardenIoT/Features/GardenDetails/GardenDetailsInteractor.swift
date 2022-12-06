@@ -52,7 +52,7 @@ final class GardenDetailsInteractor: PresentableInteractor<GardenDetailsPresenta
     }
 
     func fetchAllDeviceIds() {
-        self.viewModel.listDevices.append(Device(gardenId: "6385965016563213bbc5a3c6", id: "6385d202f8f5ed28a28b3ce5", name: "device-1", description: "sensor-1", status: "unknown"))
+        self.viewModel.listDevices.append(Device(gardenId: "6385965016563213bbc5a3c6", id: "6385d202f8f5ed28a28b3ce5", name: "device-1", description: "sensor-1"))
         self.viewModel.currentSensor = self.viewModel.listDevices.first
     }
 }

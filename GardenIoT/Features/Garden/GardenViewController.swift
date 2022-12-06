@@ -16,6 +16,7 @@ private struct Const {
 
 protocol GardenPresentableListener: AnyObject {
     func didSelect(garden: Garden)
+    func didTapToAddNewGardenWith(name: String, address: String)
 }
 
 final class GardenViewController: UIViewController, GardenViewControllable {
@@ -35,6 +36,7 @@ final class GardenViewController: UIViewController, GardenViewControllable {
     // MARK: - Config
     func config() {
         self.configCollectionView()
+        self.configAddGardenView()
     }
 
     private func configCollectionView() {
@@ -44,6 +46,15 @@ final class GardenViewController: UIViewController, GardenViewControllable {
         self.collectionView.dataSource = self
         self.collectionView.contentInset = Const.contentInsets
         self.collectionView.registerCell(type: GardenCell.self)
+    }
+
+    private func configAddGardenView() {
+        AddGardenView.shared.delegate = self
+    }
+
+    // MARK: - Actions
+    @IBAction func didTapCreateButton(_ sender: TapableView) {
+        AddGardenView.show()
     }
 }
 
@@ -77,5 +88,19 @@ extension GardenViewController: GardenPresentable {
         self.loadViewIfNeeded()
         self.viewModel = viewModel
         self.collectionView.reloadData()
+    }
+
+    func bindAddNewGardenResult(isSuccess: Bool) {
+        let alertViewController = UIAlertController(title: "New garden", message: isSuccess ? "Create new garden successfully" : "Something went wrong. Try again!", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .cancel)
+        alertViewController.addAction(alertAction)
+        self.present(alertViewController, animated: true)
+    }
+}
+
+// MARK: - AddGardenViewDelegate
+extension GardenViewController: AddGardenViewDelegate {
+    func addGardenViewDidTapConfirm(_ addGardenView: AddGardenView, name: String, address: String) {
+        self.listener?.didTapToAddNewGardenWith(name: name, address: address)
     }
 }

@@ -5,8 +5,14 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Outfit-SemiBold.otf">
+            <string>Outfit-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeviceViewController">
             <connections>
@@ -46,17 +52,72 @@
                             <color key="value" red="0.3529411764705882" green="0.27450980392156865" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="addDeviceButtonDidTap:" destination="-1" eventType="touchUpInside" id="p73-sM-bi1"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwm-Bc-sc6">
+                    <rect key="frame" x="0.0" y="44" width="414" height="90"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv2-Qy-J22">
+                            <rect key="frame" x="16" y="21" width="111" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="orU-NR-wCe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="36"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Pv2-Qy-J22" firstAttribute="centerY" secondItem="bwm-Bc-sc6" secondAttribute="centerY" id="CQe-7b-47j"/>
+                        <constraint firstAttribute="height" constant="90" id="bzW-kt-1UN"/>
+                        <constraint firstItem="Pv2-Qy-J22" firstAttribute="leading" secondItem="bwm-Bc-sc6" secondAttribute="leading" constant="16" id="hXy-iO-BIN"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ep-yB-kyw">
+                    <rect key="frame" x="0.0" y="134" width="414" height="728"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7Wg-pv-2Fr">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="728"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F1H-XD-Apu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="364"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cin-Dd-QbU">
+                                    <rect key="frame" x="0.0" y="364" width="414" height="364"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="7Wg-pv-2Fr" secondAttribute="bottom" id="6eL-lu-0Cn"/>
+                        <constraint firstAttribute="trailing" secondItem="7Wg-pv-2Fr" secondAttribute="trailing" id="BVw-0j-Ipm"/>
+                        <constraint firstItem="7Wg-pv-2Fr" firstAttribute="top" secondItem="6ep-yB-kyw" secondAttribute="top" id="J40-Tr-UIc"/>
+                        <constraint firstItem="7Wg-pv-2Fr" firstAttribute="leading" secondItem="6ep-yB-kyw" secondAttribute="leading" id="nwv-7v-udW"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6ep-yB-kyw" secondAttribute="bottom" id="F1L-6K-HRQ"/>
+                <constraint firstItem="bwm-Bc-sc6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="NyK-em-3ro"/>
+                <constraint firstItem="6ep-yB-kyw" firstAttribute="top" secondItem="bwm-Bc-sc6" secondAttribute="bottom" id="OdA-Ug-RHb"/>
                 <constraint firstItem="p5A-5P-yUN" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-20" id="QYj-HI-Sig"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bwm-Bc-sc6" secondAttribute="trailing" id="URx-n8-Y1N"/>
+                <constraint firstItem="bwm-Bc-sc6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZcI-SN-qyK"/>
                 <constraint firstAttribute="bottom" secondItem="jc7-th-rtZ" secondAttribute="bottom" id="a3y-TZ-vJN"/>
                 <constraint firstItem="jc7-th-rtZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aeH-LS-7o6"/>
                 <constraint firstItem="jc7-th-rtZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="d9n-cE-5fB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jc7-th-rtZ" secondAttribute="trailing" id="fQg-IC-lsm"/>
+                <constraint firstItem="6ep-yB-kyw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="j4O-wv-gfp"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="p5A-5P-yUN" secondAttribute="bottom" constant="40" id="qjc-iO-LPU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6ep-yB-kyw" secondAttribute="trailing" id="yzp-Uk-yhd"/>
             </constraints>
             <point key="canvasLocation" x="-394" y="74"/>
         </view>
@@ -64,5 +125,8 @@
     <resources>
         <image name="ic_device_background" width="1920" height="960"/>
         <image name="ic_plus_black" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
