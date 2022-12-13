@@ -149,7 +149,9 @@
                 <outlet property="addressTextField" destination="aJ9-P4-Jka" id="Bqy-qr-oST"/>
                 <outlet property="backgroundView" destination="dOV-Pd-1dz" id="j8G-8G-FRR"/>
                 <outlet property="confirmButton" destination="tL3-2X-vHd" id="xol-2J-9Zk"/>
+                <outlet property="confirmLabel" destination="c0G-Zx-n5S" id="S8A-Z6-QPF"/>
                 <outlet property="nameTextField" destination="n6R-lj-ZKy" id="lo8-bm-qH1"/>
+                <outlet property="titleLabel" destination="cjA-EM-i39" id="WPY-Gm-isZ"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="54.910714285714285"/>
         </view>

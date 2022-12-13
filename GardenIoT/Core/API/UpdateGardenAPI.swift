@@ -1,33 +1,31 @@
 //
-//  CreateNewDeviceAPI.swift
+//  UpdateGardenAPI.swift
 //  GardenIoT
 //
-//  Created by đào sơn on 06/12/2022.
+//  Created by đào sơn on 13/12/2022.
 //
 
 import Foundation
 
-class CreateNewDeviceAPI: HttpEndpoint {
+class UpdateGardenAPI: HttpEndpoint {
     var name: String
-    var description: String
+    var address: String
     var gardenId: String
     var accessToken: String
-    var deviceType: String
 
-    init(name: String, description: String, gardenId: String, accessToken: String, deviceType: String) {
+    init(name: String, address: String, gardenId: String, accessToken: String) {
         self.name = name
-        self.description = description
+        self.address = address
         self.gardenId = gardenId
         self.accessToken = accessToken
-        self.deviceType = deviceType
     }
 
     func path() -> String {
-        return "api/garden/\(self.gardenId)/device"
+        return "api/garden/\(self.gardenId)"
     }
 
     func method() -> HttpMethod {
-        .post
+        .patch
     }
 
     func middleware() -> NetworkMiddleware {
@@ -37,8 +35,7 @@ class CreateNewDeviceAPI: HttpEndpoint {
     func parameters() -> [String: Any]? {
         return [
             "name": self.name,
-            "description": self.description,
-            "type": self.deviceType
+            "address": self.address,
         ]
     }
 
@@ -48,11 +45,12 @@ class CreateNewDeviceAPI: HttpEndpoint {
 
     func convertObject(data: Data) throws -> Any {
         do {
-            let response = try JSONDecoder().decode(CommonResponse<DeviceEntity>.self, from: data)
-            return Device(entity: response.data)
+            let response = try JSONDecoder().decode(CommonResponse<GardenEntity>.self, from: data)
+            return Garden(entity: response.data)
         } catch {
             let response = try JSONDecoder().decode(ClientFailedResponse<String>.self, from: data)
             return response.message
         }
     }
 }
+

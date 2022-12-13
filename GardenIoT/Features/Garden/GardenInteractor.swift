@@ -69,6 +69,7 @@ final class GardenInteractor: PresentableInteractor<GardenPresentable>, GardenIn
                     self.viewModel.add(garden: garden)
                     self.presenter.bind(viewModel: self.viewModel)
                     self.presenter.bindAddNewGardenResult(isSuccess: true)
+                    self.fetchListGardens()
                     SVProgressHUD.dismiss()
                 } else {
                     print("failed to create new garden with message: \(responseData)")

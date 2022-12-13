@@ -11,4 +11,8 @@ extension GardenInteractor: GardenDetailsListener {
     func dismissGardenDetails() {
         self.router?.dismissGardenDetails()
     }
+
+    func reloadData() {
+        self.fetchListGardens()
+    }
 }

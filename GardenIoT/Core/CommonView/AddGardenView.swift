@@ -19,6 +19,8 @@ class AddGardenView: UIView {
     @IBOutlet private weak var addressTextField: SolarTextField!
     @IBOutlet private weak var confirmButton: TapableView!
     @IBOutlet private weak var backgroundView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var confirmLabel: UILabel!
 
     // MARK: - Variables
     private var isGardenInformationValid = false {
@@ -82,9 +84,16 @@ class AddGardenView: UIView {
         }
     }
 
-    private func show(superview: UIView) {
+    private func show(superview: UIView, garden: Garden?) {
         self.alpha = 0
         superview.addSubview(self)
+        if let garden = garden {
+            self.titleLabel.text = "Update Garden"
+            self.confirmLabel.text = "Update"
+            self.nameTextField.text = garden.name
+            self.addressTextField.text = garden.address
+        }
+
         self.fitSuperviewConstraint()
 
         UIView.animate(withDuration: 0.25) {
@@ -93,13 +102,13 @@ class AddGardenView: UIView {
     }
 
     // MARK: - Static function
-    static func show() {
+    static func show(garden: Garden?) {
         guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
               shared.superview == nil else {
             return
         }
 
-        shared.show(superview: window)
+        shared.show(superview: window, garden: garden)
     }
 
     static func dismiss() {
