@@ -15,7 +15,13 @@ protocol NetworkService {
     func updateUserInfor(accessToken: String, userId: String, account: Account) -> Observable<Any>
     func getAllGardens(accessToken: String) -> Observable<[Garden]>
     func addNewGarden(accessToken: String, name: String, address: String) -> Observable<Any>
-    func createNewDevice(accessToken: String, name: String, description: String, gardenId: String) -> Observable<Any>
+    func createNewDevice(accessToken: String, name: String, description: String, gardenId: String, deviceType: String) -> Observable<Any>
+    func getAllDevices(accessToken: String) -> Observable<[Device]>
+    func getGardenById(accessToken: String, gardenId: String) -> Observable<Garden>
+    func deleteDeviceById(accessToken: String, gardenId: String, deviceId: String) -> Observable<Any>
+    func getAllDevicesByGardenId(accessToken: String, gardenId: String) -> Observable<[Device]>
+    func updateDevice(accessToken: String, name: String, description: String, gardenId: String, deviceType: String, deviceId: String) -> Observable<Any>
+    func updateGarden(accessToken: String, name: String, address: String, gardenId: String) -> Observable<Any>
 }
 
 final class NetworkServiceImpl: NetworkService {
@@ -43,7 +49,31 @@ final class NetworkServiceImpl: NetworkService {
         return AddNewGardenAPI(accessToken: accessToken, name: name, address: address).execute()
     }
 
-    func createNewDevice(accessToken: String, name: String, description: String, gardenId: String) -> Observable<Any> {
-        return CreateNewDeviceAPI(name: name, description: description, gardenId: gardenId, accessToken: accessToken).execute()
+    func createNewDevice(accessToken: String, name: String, description: String, gardenId: String, deviceType: String) -> Observable<Any> {
+        return CreateNewDeviceAPI(name: name, description: description, gardenId: gardenId, accessToken: accessToken, deviceType: deviceType).execute()
+    }
+
+    func getAllDevices(accessToken: String) -> Observable<[Device]> {
+        return GetAllDevicesAPI(accessToken: accessToken).execute()
+    }
+
+    func getGardenById(accessToken: String, gardenId: String) -> Observable<Garden> {
+        return GetGardenByIdAPI(accessToken: accessToken, gardenId: gardenId).execute()
+    }
+
+    func deleteDeviceById(accessToken: String, gardenId: String, deviceId: String) -> Observable<Any> {
+        return DeleteDeviceByIdAPI(accessToken: accessToken, gardenId: gardenId, deviceId: deviceId).execute()
+    }
+
+    func getAllDevicesByGardenId(accessToken: String, gardenId: String) -> Observable<[Device]> {
+        return GetAllDevicesByGardenIdAPI(accessToken: accessToken, gardenId: gardenId).execute()
+    }
+
+    func updateDevice(accessToken: String, name: String, description: String, gardenId: String, deviceType: String, deviceId: String) -> Observable<Any> {
+        return UpdateDeviceAPI(name: name, description: description, gardenId: gardenId, accessToken: accessToken, deviceType: deviceType, deviceId: deviceId).execute()
+    }
+
+    func updateGarden(accessToken: String, name: String, address: String, gardenId: String) -> Observable<Any> {
+        return UpdateGardenAPI(name: name, address: address, gardenId: gardenId, accessToken: accessToken).execute()
     }
 }

@@ -47,8 +47,8 @@ extension GardenRouter: GardenRouting {
             return
         }
 
-        self.viewController.popToBefore(viewControllable: router.viewControllable)
         detachChild(router)
+        self.viewController.popToBefore(viewControllable: router.viewControllable)
         self.gardenDetailsRouter = nil
     }
 }

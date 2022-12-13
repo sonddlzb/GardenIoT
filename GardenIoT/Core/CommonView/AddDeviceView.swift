@@ -11,7 +11,7 @@ import RxSwift
 import DropDown
 
 protocol AddDeviceViewDelegate: AnyObject {
-    func addDeviceViewDidTapConfirm(_ addDeviceView: AddDeviceView, name: String, description: String, gardenId: String)
+    func addDeviceViewDidTapConfirm(_ addDeviceView: AddDeviceView, name: String, description: String, gardenId: String, deviceType: String, isNewDevice: Bool)
 }
 
 class AddDeviceView: UIView {
@@ -24,9 +24,14 @@ class AddDeviceView: UIView {
     // MARK: - Outlets
     @IBOutlet private weak var nameTextField: SolarTextField!
     @IBOutlet private weak var descriptionTextField: SolarTextField!
+    @IBOutlet private weak var selectGardenButton: UIButton!
+    @IBOutlet private weak var selectDeviceTypeButton: UIButton!
     @IBOutlet private weak var confirmButton: TapableView!
     @IBOutlet private weak var backgroundView: UIView!
-    @IBOutlet private weak var emptyLabel: UILabel!
+    @IBOutlet private weak var emptyGardenLabel: UILabel!
+    @IBOutlet private weak var emptyDeviceTypeLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var confirmLabel: UILabel!
 
     // MARK: - Variables
     private var isDeviceInformationValid = false {
@@ -35,6 +40,8 @@ class AddDeviceView: UIView {
             self.confirmButton.backgroundColor = isDeviceInformationValid ? UIColor(rgb: 0xFF6C39) : UIColor(rgb: 0xDDDDDD)
         }
     }
+
+    private var device: Device?
 
     weak var delegate: AddDeviceViewDelegate?
 
@@ -73,7 +80,12 @@ class AddDeviceView: UIView {
         if let accessToken = AuthorizationHelper.shared.getToken() {
             networkService.getAllGardens(accessToken: accessToken).subscribe(onNext: { listGardens in
                 print("number of garden:  \(listGardens.count)")
-                self.viewModel = AddDeviceViewModel(listGardens: listGardens)
+                self.viewModel = AddDeviceViewModel(listGardens: listGardens, selectedDeviceType: self.viewModel.selectedDeviceType)
+                self.viewModel.selectedGarden = self.viewModel.listGardens.first(where: {
+                    $0.id == self.device?.gardenId
+                })
+                self.selectGardenButton.setTitle(self.viewModel.selectedGarden?.name ?? "Select Garden", for: .normal)
+                self.refreshUI()
             }, onError: { error in
                 print("Failed to get gardens infor with error \(error)")
             }).disposed(by: self.disposeBag)
@@ -81,13 +93,14 @@ class AddDeviceView: UIView {
     }
 
     private func refreshUI() {
-        self.emptyLabel.isHidden = self.viewModel.isEmptyWarningHidden()
+        self.emptyGardenLabel.isHidden = self.viewModel.isGardenEmptyWarningHidden()
+        self.emptyDeviceTypeLabel.isHidden = self.viewModel.isDeviceTypeEmptyWarningHidden()
     }
 
     // MARK: - Action
     @IBAction func confirmButtonDidTap(_ sender: Any) {
-        if let gardenId = self.viewModel.selectedGarden?.id {
-        self.delegate?.addDeviceViewDidTapConfirm(self, name: self.nameTextField.text, description: self.descriptionTextField.text, gardenId: gardenId)
+        if let gardenId = self.viewModel.selectedGarden?.id, let deviceType = self.viewModel.selectedDeviceType {
+            self.delegate?.addDeviceViewDidTapConfirm(self, name: self.nameTextField.text, description: self.descriptionTextField.text, gardenId: gardenId, deviceType: deviceType, isNewDevice: self.device == nil)
             self.dismiss()
         } else {
             self.refreshUI()
@@ -107,7 +120,24 @@ class AddDeviceView: UIView {
             guard self != nil else { return }
             sender.setTitle(item, for: .normal)
             self?.viewModel.selectItem(at: index)
-            self?.refreshUI()
+            if self?.emptyGardenLabel.isHidden == false {
+                self?.refreshUI()
+            }
+        }
+    }
+
+    @IBAction func selectDeviceTypeButtonDidTap(_ sender: UIButton) {
+        dropDown.dataSource = self.viewModel.listDeviceTypes
+        dropDown.anchorView = sender
+        dropDown.bottomOffset = CGPoint(x: 0, y: sender.frame.size.height)
+        dropDown.show()
+        dropDown.selectionAction = { [weak self] (index, item) in
+            guard self != nil else { return }
+            sender.setTitle(item, for: .normal)
+            self?.viewModel.selectDeviceType(at: index)
+            if self?.emptyDeviceTypeLabel.isHidden == false {
+                self?.refreshUI()
+            }
         }
     }
 
@@ -124,10 +154,22 @@ class AddDeviceView: UIView {
         }
     }
 
-    private func show(superview: UIView) {
+    private func show(superview: UIView, title: String?, device: Device?) {
         self.alpha = 0
         superview.addSubview(self)
         self.fitSuperviewConstraint()
+        self.device = device
+        self.descriptionTextField.text = device?.description ?? ""
+        self.nameTextField.text = device?.name ?? ""
+        self.titleLabel.text = title ?? "New Device"
+        self.viewModel.selectedDeviceType = device?.type
+        self.confirmLabel.text = device == nil ? "Create" : "Update"
+        self.selectDeviceTypeButton.setTitle(self.viewModel.selectedDeviceType ?? "Select device's type", for: .normal)
+        self.viewModel.selectedGarden = self.viewModel.listGardens.first(where: {
+            $0.id == self.device?.gardenId
+        })
+        self.selectGardenButton.setTitle(self.viewModel.selectedGarden?.name ?? "Select Garden", for: .normal)
+        self.refreshUI()
 
         UIView.animate(withDuration: 0.25) {
             self.alpha = 1
@@ -135,13 +177,13 @@ class AddDeviceView: UIView {
     }
 
     // MARK: - Static function
-    static func show() {
+    static func show(title: String?, device: Device?) {
         guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }),
               shared.superview == nil else {
             return
         }
 
-        shared.show(superview: window)
+        shared.show(superview: window, title: title, device: device)
     }
 
     static func dismiss() {

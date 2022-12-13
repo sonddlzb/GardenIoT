@@ -8,19 +8,30 @@
 import Foundation
 
 struct AddDeviceViewModel {
+    var listDeviceTypes = ["sensor", "light-bulb"]
     var listGardens: [Garden]
     var selectedGarden: Garden?
+    var selectedDeviceType: String?
 
     init(listGardens: [Garden]) {
         self.listGardens = listGardens
+    }
+
+    init(listGardens: [Garden], selectedDeviceType: String?) {
+        self.listGardens = listGardens
+        self.selectedDeviceType = selectedDeviceType
     }
 
     static func makeEmpty() -> AddDeviceViewModel {
         return AddDeviceViewModel(listGardens: [])
     }
 
-    func isEmptyWarningHidden() -> Bool {
+    func isGardenEmptyWarningHidden() -> Bool {
         return self.selectedGarden != nil
+    }
+
+    func isDeviceTypeEmptyWarningHidden() -> Bool {
+        return self.selectedDeviceType != nil
     }
 
     func listGardenName() -> [String] {
@@ -29,5 +40,9 @@ struct AddDeviceViewModel {
 
     mutating func selectItem(at index: Int) {
         self.selectedGarden = self.listGardens[index]
+    }
+
+    mutating func selectDeviceType(at index: Int) {
+        self.selectedDeviceType = self.listDeviceTypes[index]
     }
 }

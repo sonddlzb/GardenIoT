@@ -28,7 +28,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrc-at-qTE">
-                    <rect key="frame" x="24" y="281" width="366" height="344"/>
+                    <rect key="frame" x="24" y="255" width="366" height="396"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n6R-lj-ZKy" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
                             <rect key="frame" x="10" y="90" width="346" height="50"/>
@@ -108,7 +108,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL3-2X-vHd" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
-                            <rect key="frame" x="93" y="282" width="180" height="50"/>
+                            <rect key="frame" x="93" y="334" width="180" height="50"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0G-Zx-n5S">
                                     <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
@@ -137,26 +137,56 @@
                                 <action selector="confirmButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="sq2-hL-61i"/>
                             </connections>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnT-Mq-WVH">
+                            <rect key="frame" x="10" y="274" width="346" height="40"/>
+                            <color key="backgroundColor" red="0.99607843139999996" green="0.70196078429999997" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="KiB-oq-6TG"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Select device's type"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="selectDeviceTypeButtonDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="uKx-8G-yxK"/>
+                            </connections>
+                        </button>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Must select device's type before!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PN-W9-V0F">
+                            <rect key="frame" x="10" y="262" width="171" height="12"/>
+                            <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="12"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="9PN-W9-V0F" firstAttribute="bottom" secondItem="QnT-Mq-WVH" secondAttribute="top" id="1vX-WC-YQ1"/>
                         <constraint firstItem="zKK-GA-zLJ" firstAttribute="leading" secondItem="Hrc-at-qTE" secondAttribute="leading" constant="10" id="3Fz-Km-HLy"/>
+                        <constraint firstItem="QnT-Mq-WVH" firstAttribute="top" secondItem="lEm-ia-otc" secondAttribute="bottom" constant="12" id="68L-Dl-HyF"/>
                         <constraint firstAttribute="trailing" secondItem="n6R-lj-ZKy" secondAttribute="trailing" constant="10" id="7Cd-ec-J6X"/>
                         <constraint firstItem="efI-br-1eN" firstAttribute="top" secondItem="Hrc-at-qTE" secondAttribute="top" constant="10" id="EsG-2k-GID"/>
                         <constraint firstItem="aJ9-P4-Jka" firstAttribute="leading" secondItem="Hrc-at-qTE" secondAttribute="leading" constant="10" id="Fca-10-wXb"/>
                         <constraint firstItem="n6R-lj-ZKy" firstAttribute="top" secondItem="efI-br-1eN" secondAttribute="bottom" constant="20" id="GYw-0A-I63"/>
                         <constraint firstItem="tL3-2X-vHd" firstAttribute="centerX" secondItem="Hrc-at-qTE" secondAttribute="centerX" id="Hz6-s0-4UJ"/>
                         <constraint firstAttribute="trailing" secondItem="aJ9-P4-Jka" secondAttribute="trailing" constant="10" id="Jge-po-UEU"/>
+                        <constraint firstItem="9PN-W9-V0F" firstAttribute="leading" secondItem="Hrc-at-qTE" secondAttribute="leading" constant="10" id="LiT-PU-Onz"/>
                         <constraint firstItem="lEm-ia-otc" firstAttribute="leading" secondItem="Hrc-at-qTE" secondAttribute="leading" constant="10" id="Luj-08-6PU"/>
+                        <constraint firstItem="tL3-2X-vHd" firstAttribute="top" secondItem="QnT-Mq-WVH" secondAttribute="bottom" constant="20" id="MsA-w2-fzs"/>
+                        <constraint firstAttribute="trailing" secondItem="QnT-Mq-WVH" secondAttribute="trailing" constant="10" id="PQC-VF-Q8e"/>
                         <constraint firstItem="aJ9-P4-Jka" firstAttribute="top" secondItem="n6R-lj-ZKy" secondAttribute="bottom" constant="12" id="UhQ-11-mMc"/>
                         <constraint firstItem="zKK-GA-zLJ" firstAttribute="top" secondItem="aJ9-P4-Jka" secondAttribute="bottom" id="XJE-Wy-Efp"/>
                         <constraint firstItem="n6R-lj-ZKy" firstAttribute="leading" secondItem="Hrc-at-qTE" secondAttribute="leading" constant="10" id="Zwa-ah-yqu"/>
                         <constraint firstItem="zKK-GA-zLJ" firstAttribute="bottom" secondItem="lEm-ia-otc" secondAttribute="top" id="c6R-aI-d7J"/>
                         <constraint firstItem="efI-br-1eN" firstAttribute="centerX" secondItem="Hrc-at-qTE" secondAttribute="centerX" id="hET-4l-RM7"/>
-                        <constraint firstItem="tL3-2X-vHd" firstAttribute="top" secondItem="lEm-ia-otc" secondAttribute="bottom" constant="20" id="jIF-IC-6hS"/>
                         <constraint firstAttribute="trailing" secondItem="lEm-ia-otc" secondAttribute="trailing" constant="10" id="kcY-lQ-vpn"/>
                         <constraint firstItem="lEm-ia-otc" firstAttribute="top" secondItem="aJ9-P4-Jka" secondAttribute="bottom" constant="20" id="qH1-R9-Kba"/>
                         <constraint firstAttribute="bottom" secondItem="tL3-2X-vHd" secondAttribute="bottom" constant="12" id="qun-VW-1Pb"/>
+                        <constraint firstItem="9PN-W9-V0F" firstAttribute="top" secondItem="lEm-ia-otc" secondAttribute="bottom" id="raJ-zt-Rfm"/>
+                        <constraint firstItem="QnT-Mq-WVH" firstAttribute="leading" secondItem="Hrc-at-qTE" secondAttribute="leading" constant="10" id="vhz-b6-dpU"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -179,9 +209,14 @@
             <connections>
                 <outlet property="backgroundView" destination="dOV-Pd-1dz" id="ryt-UN-aye"/>
                 <outlet property="confirmButton" destination="tL3-2X-vHd" id="4aV-wg-lEf"/>
+                <outlet property="confirmLabel" destination="c0G-Zx-n5S" id="5Tn-0L-XvM"/>
                 <outlet property="descriptionTextField" destination="aJ9-P4-Jka" id="d14-WN-xTc"/>
-                <outlet property="emptyLabel" destination="zKK-GA-zLJ" id="grh-sf-kVw"/>
+                <outlet property="emptyDeviceTypeLabel" destination="9PN-W9-V0F" id="Ujj-Ac-Yd1"/>
+                <outlet property="emptyGardenLabel" destination="zKK-GA-zLJ" id="gmx-de-ezy"/>
                 <outlet property="nameTextField" destination="n6R-lj-ZKy" id="Qmf-ag-IVn"/>
+                <outlet property="selectDeviceTypeButton" destination="QnT-Mq-WVH" id="1cb-4r-Enw"/>
+                <outlet property="selectGardenButton" destination="lEm-ia-otc" id="7wv-6J-udT"/>
+                <outlet property="titleLabel" destination="cjA-EM-i39" id="IK4-Zl-c91"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="54.910714285714285"/>
         </view>

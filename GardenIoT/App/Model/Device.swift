@@ -12,12 +12,27 @@ class Device {
     var id: String
     var name: String
     var description: String
+    var type: String
+    var status: String?
+    var userId: String
 
-    init(gardenId: String, id: String, name: String, description: String) {
+    init(gardenId: String, id: String, name: String, description: String, type: String, status: String, userId: String) {
         self.gardenId = gardenId
         self.id = id
         self.name = name
         self.description = description
+        self.type = type
+        self.status = status
+        self.userId = userId
+    }
+
+    init(gardenId: String, id: String, name: String, description: String, type: String, userId: String) {
+        self.gardenId = gardenId
+        self.id = id
+        self.name = name
+        self.description = description
+        self.type = type
+        self.userId = userId
     }
 
     init(entity: DeviceEntity) {
@@ -25,5 +40,8 @@ class Device {
         self.id = entity.id
         self.name = entity.name
         self.description = entity.description
+        self.status = entity.status
+        self.type = entity.type
+        self.userId = entity.userId
     }
 }

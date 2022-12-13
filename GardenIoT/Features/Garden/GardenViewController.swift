@@ -54,7 +54,7 @@ final class GardenViewController: UIViewController, GardenViewControllable {
 
     // MARK: - Actions
     @IBAction func didTapCreateButton(_ sender: TapableView) {
-        AddGardenView.show()
+        AddGardenView.show(garden: nil)
     }
 }
 

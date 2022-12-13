@@ -16,7 +16,6 @@ protocol DeviceViewControllable: ViewControllable {
 }
 
 final class DeviceRouter: ViewableRouter<DeviceInteractable, DeviceViewControllable>, DeviceRouting {
-    
     override init(interactor: DeviceInteractable, viewController: DeviceViewControllable) {
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
