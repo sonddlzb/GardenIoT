@@ -24,9 +24,12 @@
             <connections>
                 <outlet property="emptyLabel" destination="ehO-Ww-7Gn" id="7jB-wS-1i7"/>
                 <outlet property="loginButton" destination="m3U-gh-C2e" id="7ei-YI-lw9"/>
+                <outlet property="passwordLeadingConstraint" destination="dZU-Bb-UCc" id="gYC-it-voO"/>
                 <outlet property="passwordTextField" destination="1af-mj-fG6" id="Fka-3Q-ILw"/>
+                <outlet property="userNameLeadingConstraint" destination="2ml-3A-1pf" id="HMO-YN-E1f"/>
                 <outlet property="usernameTextField" destination="Nsl-I8-DzC" id="eTK-Fe-YST"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jYO-eb-xeE"/>
+                <outlet property="welcomeTopConstraint" destination="Ki8-MG-Pwx" id="iPk-A1-rdm"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -38,19 +41,19 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAc-Ae-hDu">
-                    <rect key="frame" x="132" y="244" width="150.5" height="32"/>
+                    <rect key="frame" x="132" y="-56" width="150.5" height="32"/>
                     <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="30"/>
                     <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNt-Ey-cI9">
-                    <rect key="frame" x="50" y="288" width="56" height="19.5"/>
+                    <rect key="frame" x="50" y="276" width="56" height="19.5"/>
                     <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="18"/>
                     <color key="textColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nsl-I8-DzC" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="50" y="317.5" width="314" height="40"/>
+                    <rect key="frame" x="-400" y="305.5" width="310.5" height="40"/>
                     <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="BsG-3Q-qG6"/>
@@ -62,7 +65,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1af-mj-fG6" customClass="PasswordTextField" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="50" y="369.5" width="314" height="40"/>
+                    <rect key="frame" x="-400" y="357.5" width="310.5" height="40"/>
                     <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="5Hh-Pw-hFR"/>
@@ -74,7 +77,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3U-gh-C2e" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="117" y="439.5" width="180" height="50"/>
+                    <rect key="frame" x="117" y="427.5" width="180" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSw-3U-siW">
                             <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
@@ -103,13 +106,13 @@
                     </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haven't had an account before?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9f-Y1-BKB">
-                    <rect key="frame" x="50" y="539.5" width="314" height="19.5"/>
+                    <rect key="frame" x="50" y="527.5" width="314" height="19.5"/>
                     <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcg-0l-ded" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="157" y="561" width="100" height="30"/>
+                    <rect key="frame" x="157" y="549" width="100" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADK-LZ-0fV">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
@@ -132,9 +135,8 @@
                         <action selector="signUpButtonDidTap:" destination="-1" eventType="touchUpInside" id="PLG-Gy-3rR"/>
                     </connections>
                 </view>
-
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input field must not be empty!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehO-Ww-7Gn">
-                    <rect key="frame" x="50" y="412.5" width="314" height="25"/>
+                    <rect key="frame" x="50" y="400.5" width="314" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="Obo-BV-MUf"/>
                     </constraints>
@@ -148,25 +150,25 @@
             <constraints>
                 <constraint firstItem="PNt-Ey-cI9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="0kW-eN-84T"/>
                 <constraint firstItem="I9f-Y1-BKB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="12P-dp-Zjn"/>
-                <constraint firstItem="Nsl-I8-DzC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="2ml-3A-1pf"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1af-mj-fG6" secondAttribute="trailing" constant="50" id="9wA-UN-FAB"/>
+                <constraint firstItem="Nsl-I8-DzC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="2ml-3A-1pf"/>
                 <constraint firstItem="m3U-gh-C2e" firstAttribute="top" secondItem="1af-mj-fG6" secondAttribute="bottom" constant="30" id="Dne-rg-a6L"/>
                 <constraint firstItem="I9f-Y1-BKB" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="DuZ-lb-DVz"/>
                 <constraint firstAttribute="trailing" secondItem="nmJ-BU-SFB" secondAttribute="trailing" id="FBE-8O-ZC3"/>
                 <constraint firstItem="bcg-0l-ded" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="HDx-dN-6Jw"/>
                 <constraint firstAttribute="bottom" secondItem="nmJ-BU-SFB" secondAttribute="bottom" id="Igo-S1-uLt"/>
                 <constraint firstItem="Nsl-I8-DzC" firstAttribute="top" secondItem="PNt-Ey-cI9" secondAttribute="bottom" constant="10" id="KDb-UH-1zf"/>
-                <constraint firstItem="jAc-Ae-hDu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="200" id="Ki8-MG-Pwx"/>
+                <constraint firstItem="jAc-Ae-hDu" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="-100" id="Ki8-MG-Pwx"/>
                 <constraint firstItem="ehO-Ww-7Gn" firstAttribute="top" secondItem="1af-mj-fG6" secondAttribute="bottom" constant="3" id="Ntd-0C-yLz"/>
-                <constraint firstItem="PNt-Ey-cI9" firstAttribute="top" secondItem="jAc-Ae-hDu" secondAttribute="bottom" constant="12" id="Y2L-x0-ARe"/>
+                <constraint firstItem="1af-mj-fG6" firstAttribute="width" secondItem="nmJ-BU-SFB" secondAttribute="width" multiplier="0.75" id="VlY-ei-hBk"/>
+                <constraint firstItem="PNt-Ey-cI9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="232" id="Y2L-x0-ARe"/>
                 <constraint firstItem="jAc-Ae-hDu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="cgV-xP-hS6"/>
-                <constraint firstItem="1af-mj-fG6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="dZU-Bb-UCc"/>
+                <constraint firstItem="1af-mj-fG6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="dZU-Bb-UCc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ehO-Ww-7Gn" secondAttribute="trailing" constant="50" id="eDx-GJ-jla"/>
                 <constraint firstItem="1af-mj-fG6" firstAttribute="top" secondItem="Nsl-I8-DzC" secondAttribute="bottom" constant="12" id="edN-9q-8XZ"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Nsl-I8-DzC" secondAttribute="trailing" constant="50" id="ej7-u9-Thm"/>
                 <constraint firstItem="ehO-Ww-7Gn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="fJj-kc-yv8"/>
                 <constraint firstItem="m3U-gh-C2e" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hcA-zF-1sq"/>
                 <constraint firstItem="I9f-Y1-BKB" firstAttribute="top" secondItem="m3U-gh-C2e" secondAttribute="bottom" constant="50" id="iLX-MH-q9r"/>
+                <constraint firstItem="Nsl-I8-DzC" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.75" id="nr7-PH-ZnQ"/>
                 <constraint firstItem="bcg-0l-ded" firstAttribute="top" secondItem="I9f-Y1-BKB" secondAttribute="bottom" constant="2" id="pMV-5N-8zK"/>
                 <constraint firstItem="nmJ-BU-SFB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="v4Z-lj-Qma"/>
                 <constraint firstItem="nmJ-BU-SFB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ycP-qi-hrO"/>

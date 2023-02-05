@@ -19,13 +19,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController">
             <connections>
+                <outlet property="addressLeadingConstraint" destination="nkD-Jm-iKU" id="jgx-Pe-yyd"/>
                 <outlet property="addressTextField" destination="hxz-ng-c6u" id="uFq-eb-YFf"/>
                 <outlet property="cancelButton" destination="KH0-Ay-Fei" id="Nfy-rs-Vzw"/>
+                <outlet property="confirmPasswordLeadingConstraint" destination="diu-eo-Osa" id="UAj-Rx-e5h"/>
                 <outlet property="confirmPasswordTextField" destination="WK8-sd-I9F" id="ZdW-DL-aqJ"/>
+                <outlet property="createAccountTopConstraint" destination="fWu-fH-Qbg" id="NBw-Qu-flX"/>
                 <outlet property="emptyLabel" destination="qtd-vk-OnC" id="hgy-Lq-HYc"/>
+                <outlet property="nameLeadingConstraint" destination="eH0-Qt-e0S" id="aRC-EQ-iMY"/>
                 <outlet property="nameTextField" destination="x9f-6P-lVg" id="6jx-1j-ueg"/>
+                <outlet property="passwordLeadingConstraint" destination="FJQ-5q-Xb2" id="4UM-zY-7mO"/>
                 <outlet property="passwordTextField" destination="yjs-7V-WrB" id="NWF-Vg-hT3"/>
+                <outlet property="phoneNumberLeadingConstraint" destination="6O6-GX-DAB" id="Fsb-CM-xBB"/>
                 <outlet property="phoneNumberTextField" destination="XoG-zk-gBE" id="gjx-IC-q4b"/>
+                <outlet property="usernameLeadingConstraint" destination="0RT-aM-HZT" id="EmI-Yo-eHj"/>
                 <outlet property="usernameTextField" destination="5fl-5W-GUO" id="Ulm-yO-veC"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jYO-eb-xeE"/>
             </connections>
@@ -39,7 +46,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WK8-sd-I9F" customClass="PasswordTextField" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="50" y="468" width="314" height="40"/>
+                    <rect key="frame" x="-400" y="434" width="310.5" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Xus-aN-mQO"/>
@@ -51,13 +58,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdq-qD-w6P">
-                    <rect key="frame" x="50" y="124" width="224" height="34"/>
+                    <rect key="frame" x="50" y="-56" width="224" height="34"/>
                     <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="32"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9f-6P-lVg" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="50" y="208" width="314" height="40"/>
+                    <rect key="frame" x="-400" y="174" width="310.5" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="hGC-rh-qCU"/>
@@ -69,7 +76,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XoG-zk-gBE" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="50" y="260" width="314" height="40"/>
+                    <rect key="frame" x="-400" y="226" width="310.5" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="8Ga-xb-6td"/>
@@ -81,7 +88,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxz-ng-c6u" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="50" y="312" width="314" height="40"/>
+                    <rect key="frame" x="-400" y="278" width="310.5" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="eIS-SN-2bf"/>
@@ -93,7 +100,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fl-5W-GUO" customClass="SolarTextField" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="50" y="364" width="314" height="40"/>
+                    <rect key="frame" x="-400" y="330" width="310.5" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="7yj-90-j4L"/>
@@ -105,7 +112,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjs-7V-WrB" customClass="PasswordTextField" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="50" y="416" width="314" height="40"/>
+                    <rect key="frame" x="-400" y="382" width="310.5" height="40"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="eS6-kr-lTH"/>
@@ -148,7 +155,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQS-a8-8Tl" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
-                    <rect key="frame" x="112" y="540" width="190" height="40"/>
+                    <rect key="frame" x="112" y="506" width="190" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJK-SQ-rTz">
                             <rect key="frame" x="0.0" y="0.0" width="190" height="40"/>
@@ -176,7 +183,7 @@
                     </connections>
                 </view>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input field must not be empty!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtd-vk-OnC">
-                    <rect key="frame" x="50" y="511" width="314" height="25"/>
+                    <rect key="frame" x="50" y="477" width="314" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="Gki-Jz-Qpa"/>
                     </constraints>
@@ -188,37 +195,37 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="5fl-5W-GUO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="0RT-aM-HZT"/>
-                <constraint firstItem="XoG-zk-gBE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="6O6-GX-DAB"/>
+                <constraint firstItem="5fl-5W-GUO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="0RT-aM-HZT"/>
+                <constraint firstItem="XoG-zk-gBE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="6O6-GX-DAB"/>
                 <constraint firstItem="hxz-ng-c6u" firstAttribute="top" secondItem="XoG-zk-gBE" secondAttribute="bottom" constant="12" id="6nR-Xa-nSA"/>
-                <constraint firstItem="yjs-7V-WrB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="FJQ-5q-Xb2"/>
+                <constraint firstItem="yjs-7V-WrB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="FJQ-5q-Xb2"/>
                 <constraint firstItem="WK8-sd-I9F" firstAttribute="top" secondItem="yjs-7V-WrB" secondAttribute="bottom" constant="12" id="Fu1-Iy-2Qt"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WK8-sd-I9F" secondAttribute="trailing" constant="50" id="I3G-BC-fv9"/>
                 <constraint firstItem="qtd-vk-OnC" firstAttribute="top" secondItem="WK8-sd-I9F" secondAttribute="bottom" constant="3" id="I6E-Oy-ZTP"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5fl-5W-GUO" secondAttribute="trailing" constant="50" id="Kht-gN-QWE"/>
                 <constraint firstItem="Lbt-XU-J4Y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="LTM-5U-m56"/>
                 <constraint firstItem="hQS-a8-8Tl" firstAttribute="top" secondItem="WK8-sd-I9F" secondAttribute="bottom" constant="32" id="Lxh-S4-02l"/>
+                <constraint firstItem="x9f-6P-lVg" firstAttribute="width" secondItem="1oN-rB-J96" secondAttribute="width" multiplier="0.75" id="R0L-I5-bBj"/>
                 <constraint firstAttribute="bottom" secondItem="1oN-rB-J96" secondAttribute="bottom" id="RVj-qt-0ab"/>
                 <constraint firstItem="1oN-rB-J96" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="T2Q-eE-7XH"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XoG-zk-gBE" secondAttribute="trailing" constant="50" id="W8t-Ds-qaA"/>
+                <constraint firstItem="WK8-sd-I9F" firstAttribute="width" secondItem="1oN-rB-J96" secondAttribute="width" multiplier="0.75" id="VH3-8r-7vp"/>
                 <constraint firstItem="Lbt-XU-J4Y" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="Xgl-n7-PWV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="x9f-6P-lVg" secondAttribute="trailing" constant="50" id="XjX-6a-MXw"/>
                 <constraint firstItem="vdq-qD-w6P" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="Xms-yx-5GG"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qtd-vk-OnC" secondAttribute="trailing" constant="50" id="Xzz-aZ-VFI"/>
                 <constraint firstItem="yjs-7V-WrB" firstAttribute="top" secondItem="5fl-5W-GUO" secondAttribute="bottom" constant="12" id="Yg0-RF-GjP"/>
                 <constraint firstItem="hQS-a8-8Tl" firstAttribute="centerX" secondItem="1oN-rB-J96" secondAttribute="centerX" id="a6T-5F-u5z"/>
-                <constraint firstItem="x9f-6P-lVg" firstAttribute="top" secondItem="vdq-qD-w6P" secondAttribute="bottom" constant="50" id="a8L-8U-bLj"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hxz-ng-c6u" secondAttribute="trailing" constant="50" id="arx-6E-mrH"/>
+                <constraint firstItem="x9f-6P-lVg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="130" id="a8L-8U-bLj"/>
                 <constraint firstItem="qtd-vk-OnC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="b43-Pf-035"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lbt-XU-J4Y" secondAttribute="trailing" id="cBi-54-qlX"/>
-                <constraint firstItem="WK8-sd-I9F" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="diu-eo-Osa"/>
-                <constraint firstItem="x9f-6P-lVg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="eH0-Qt-e0S"/>
-                <constraint firstItem="vdq-qD-w6P" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="fWu-fH-Qbg"/>
+                <constraint firstItem="XoG-zk-gBE" firstAttribute="width" secondItem="1oN-rB-J96" secondAttribute="width" multiplier="0.75" id="dXc-K6-nhA"/>
+                <constraint firstItem="WK8-sd-I9F" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="diu-eo-Osa"/>
+                <constraint firstItem="x9f-6P-lVg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="eH0-Qt-e0S"/>
+                <constraint firstItem="vdq-qD-w6P" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="-100" id="fWu-fH-Qbg"/>
+                <constraint firstItem="yjs-7V-WrB" firstAttribute="width" secondItem="1oN-rB-J96" secondAttribute="width" multiplier="0.75" id="ior-T5-7hZ"/>
                 <constraint firstItem="5fl-5W-GUO" firstAttribute="top" secondItem="hxz-ng-c6u" secondAttribute="bottom" constant="12" id="n04-JG-uqi"/>
-                <constraint firstItem="hxz-ng-c6u" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="50" id="nkD-Jm-iKU"/>
+                <constraint firstItem="hxz-ng-c6u" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="-400" id="nkD-Jm-iKU"/>
+                <constraint firstItem="hxz-ng-c6u" firstAttribute="width" secondItem="1oN-rB-J96" secondAttribute="width" multiplier="0.75" id="omJ-U9-WpE"/>
                 <constraint firstItem="XoG-zk-gBE" firstAttribute="top" secondItem="x9f-6P-lVg" secondAttribute="bottom" constant="12" id="qmP-Wv-DX1"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yjs-7V-WrB" secondAttribute="trailing" constant="50" id="rmk-zG-XG3"/>
                 <constraint firstItem="1oN-rB-J96" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vJz-Ou-WQw"/>
+                <constraint firstItem="5fl-5W-GUO" firstAttribute="width" secondItem="1oN-rB-J96" secondAttribute="width" multiplier="0.75" id="wW4-pg-eLL"/>
                 <constraint firstAttribute="trailing" secondItem="1oN-rB-J96" secondAttribute="trailing" id="y5Q-3V-TG8"/>
             </constraints>
             <point key="canvasLocation" x="-394" y="74"/>
