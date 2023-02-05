@@ -10,6 +10,7 @@ import UIKit
 
 enum ProfileOption: String {
     case details = "Details"
+    case dataStatistic = "Data Statistic"
     case aboutUs = "About Us"
     case signOut = "Sign Out"
 

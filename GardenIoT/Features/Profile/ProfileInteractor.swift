@@ -13,6 +13,8 @@ protocol ProfileRouting: ViewableRouting {
     func routeToDetails(account: Account)
     func dismissDetails()
     func updateUserInfor(account: Account)
+    func routeToDataStatistic()
+    func dismissDataStatistic()
 }
 
 protocol ProfilePresentable: Presentable {
@@ -86,6 +88,8 @@ extension ProfileInteractor: ProfilePresentableListener {
             print("did select about us")
         case .signOut:
             self.presenter.showConfirmDialog()
+        case .dataStatistic:
+            self.router?.routeToDataStatistic()
         }
     }
 

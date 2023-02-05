@@ -277,4 +277,10 @@ public extension Date {
     func componentsFromDate(_ date: Date, components: [Calendar.Component] = [.day, .month, .year, .hour, .minute, .second, .weekday]) -> DateComponents {
         return self.calendar.dateComponents(Set(components), from: self, to: date)
     }
+
+    func formatDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: self)
+    }
 }
