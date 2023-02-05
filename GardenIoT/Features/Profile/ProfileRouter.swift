@@ -7,7 +7,7 @@
 
 import RIBs
 
-protocol ProfileInteractable: Interactable, DetailsListener {
+protocol ProfileInteractable: Interactable, DetailsListener, DataStatisticListener {
     var router: ProfileRouting? { get set }
     var listener: ProfileListener? { get set }
 
@@ -21,11 +21,16 @@ final class ProfileRouter: ViewableRouter<ProfileInteractable, ProfileViewContro
 
     private var detailsRouter: DetailsRouting?
     private var detailsBuilder: DetailsBuildable
-    
+
+    private var dataStatisticRouter: DataStatisticRouting?
+    private var dataStatisticBuilder: DataStatisticBuildable
+
     init(interactor: ProfileInteractable,
          viewController: ProfileViewControllable,
-         detailsBuilder: DetailsBuildable) {
+         detailsBuilder: DetailsBuildable,
+         dataStatisticBuilder: DataStatisticBuildable) {
         self.detailsBuilder = detailsBuilder
+        self.dataStatisticBuilder = dataStatisticBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
@@ -53,5 +58,26 @@ extension ProfileRouter: ProfileRouting {
 
     func updateUserInfor(account: Account) {
         self.interactor.updateUserInfor(account: account)
+    }
+
+    func routeToDataStatistic() {
+        guard self.dataStatisticRouter == nil else {
+            return
+        }
+
+        let router = self.dataStatisticBuilder.build(withListener: self.interactor)
+        self.viewControllable.push(viewControllable: router.viewControllable, animated: true)
+        self.attachChild(router)
+        self.dataStatisticRouter = router
+    }
+
+    func dismissDataStatistic() {
+        guard let router = self.dataStatisticRouter else {
+            return
+        }
+
+        self.viewControllable.popToBefore(viewControllable: router.viewControllable)
+        self.detachChild(router)
+        self.dataStatisticRouter = nil
     }
 }

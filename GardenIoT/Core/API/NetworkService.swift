@@ -22,6 +22,7 @@ protocol NetworkService {
     func getAllDevicesByGardenId(accessToken: String, gardenId: String) -> Observable<[Device]>
     func updateDevice(accessToken: String, name: String, description: String, gardenId: String, deviceType: String, deviceId: String) -> Observable<Any>
     func updateGarden(accessToken: String, name: String, address: String, gardenId: String) -> Observable<Any>
+    func getGardenData(accessToken: String, gardenId: String, fromDate: Date, toDate: Date) -> Observable<[MeasureResult]>
 }
 
 final class NetworkServiceImpl: NetworkService {
@@ -75,5 +76,9 @@ final class NetworkServiceImpl: NetworkService {
 
     func updateGarden(accessToken: String, name: String, address: String, gardenId: String) -> Observable<Any> {
         return UpdateGardenAPI(name: name, address: address, gardenId: gardenId, accessToken: accessToken).execute()
+    }
+
+    func getGardenData(accessToken: String, gardenId: String, fromDate: Date, toDate: Date) -> Observable<[MeasureResult]> {
+        return GetGardenDataAPI(accessToken: accessToken, gardenId: gardenId, fromDate: fromDate, toDate: toDate).execute()
     }
 }

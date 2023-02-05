@@ -9,7 +9,7 @@ import Foundation
 
 struct ProfileViewModel {
     var account: Account
-    var profileOptions: [ProfileOption] = [.details, .aboutUs, .signOut]
+    var profileOptions: [ProfileOption] = [.details, .dataStatistic, .aboutUs, .signOut]
 
     init(account: Account) {
         self.account = account

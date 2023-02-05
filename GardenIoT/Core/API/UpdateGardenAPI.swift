@@ -35,7 +35,7 @@ class UpdateGardenAPI: HttpEndpoint {
     func parameters() -> [String: Any]? {
         return [
             "name": self.name,
-            "address": self.address,
+            "address": self.address
         ]
     }
 

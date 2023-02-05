@@ -52,5 +52,9 @@ extension DIConnector {
         DIContainer.register(GardenDetailsBuildable.self) { _, args in
             return GardenDetailsBuilder(dependency: args.get())
         }
+
+        DIContainer.register(DataStatisticBuildable.self) { _, args in
+            return DataStatisticBuilder(dependency: args.get())
+        }
     }
 }
