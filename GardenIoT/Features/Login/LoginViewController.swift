@@ -20,8 +20,11 @@ final class LoginViewController: UIViewController, LoginViewControllable {
     @IBOutlet private weak var usernameTextField: SolarTextField!
     @IBOutlet private weak var passwordTextField: PasswordTextField!
     @IBOutlet private weak var loginButton: TapableView!
-    @IBOutlet weak var emptyLabel: UILabel!
-
+    @IBOutlet private weak var emptyLabel: UILabel!
+    @IBOutlet private weak var welcomeTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var userNameLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var passwordLeadingConstraint: NSLayoutConstraint!
+    
     // MARK: - Variables
     weak var listener: LoginPresentableListener?
     private var didTapSignInButtonBefore = false
@@ -30,6 +33,7 @@ final class LoginViewController: UIViewController, LoginViewControllable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.config()
+        self.animateAppearance()
     }
 
     // MARK: - Config
@@ -54,6 +58,16 @@ final class LoginViewController: UIViewController, LoginViewControllable {
         self.passwordTextField.placeholder = "Password"
         self.passwordTextField.paddingLeft = 10
         self.passwordTextField.delegate = self
+    }
+
+    // MARK: - Animation
+    private func animateAppearance() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
+            self?.welcomeTopConstraint.constant = 200
+            self?.userNameLeadingConstraint.constant = 50
+            self?.passwordLeadingConstraint.constant = 50
+            self?.view.layoutIfNeeded()
+        }, completion: nil)
     }
 
     // MARK: - Action

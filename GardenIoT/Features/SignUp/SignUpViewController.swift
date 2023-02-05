@@ -25,6 +25,13 @@ final class SignUpViewController: UIViewController, SignUpViewControllable {
     @IBOutlet private weak var passwordTextField: PasswordTextField!
     @IBOutlet private weak var confirmPasswordTextField: PasswordTextField!
     @IBOutlet private weak var emptyLabel: UILabel!
+    @IBOutlet private weak var createAccountTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var phoneNumberLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var nameLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var addressLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var usernameLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var passwordLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var confirmPasswordLeadingConstraint: NSLayoutConstraint!
 
     weak var listener: SignUpPresentableListener?
     var viewModel: LoginViewModel!
@@ -34,6 +41,10 @@ final class SignUpViewController: UIViewController, SignUpViewControllable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.config()
+        // Delay 0.1s for better UX
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
+            self.animateAppearance()
+        })
     }
 
     // MARK: - Config
@@ -68,7 +79,7 @@ final class SignUpViewController: UIViewController, SignUpViewControllable {
         self.addressTextField.isHighlightedWhenEditting = true
         self.addressTextField.backgroundColor = UIColor(rgb: 0xF7F7F7)
         self.addressTextField.borderColor = UIColor(rgb: 0x575FCC)
-        self.addressTextField.placeholder = "Ađdress"
+        self.addressTextField.placeholder = "Address"
         self.addressTextField.paddingLeft = 10
         self.addressTextField.delegate = self
     }
@@ -98,6 +109,20 @@ final class SignUpViewController: UIViewController, SignUpViewControllable {
         self.confirmPasswordTextField.placeholder = "Confirm Password"
         self.confirmPasswordTextField.paddingLeft = 10
         self.confirmPasswordTextField.delegate = self
+    }
+
+    // MARK: - Animation
+    private func animateAppearance() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: { [weak self] in
+            self?.createAccountTopConstraint.constant = 80
+            self?.nameLeadingConstraint.constant = 50
+            self?.phoneNumberLeadingConstraint.constant = 50
+            self?.addressLeadingConstraint.constant = 50
+            self?.usernameLeadingConstraint.constant = 50
+            self?.passwordLeadingConstraint.constant = 50
+            self?.confirmPasswordLeadingConstraint.constant = 50
+            self?.view.layoutIfNeeded()
+        }, completion: nil)
     }
 
     // MARK: - Action
