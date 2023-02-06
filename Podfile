@@ -14,6 +14,7 @@ target 'GardenIoT' do
   use_frameworks!
 
   # Pods for GardenIoT
+  pod 'NotificationBannerSwift', '~> 3.0.0'
   pod 'SwiftLint'
   pod 'TLLogging'
   pod 'Resolver'

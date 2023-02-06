@@ -8,12 +8,14 @@
 import RIBs
 import RxSwift
 import UIKit
+import NotificationBannerSwift
 
 protocol HomePresentableListener: AnyObject {
     func didSelectAt(tab: HomeTab)
+    func didTapToOpenGardenDetail(at garden: Garden)
 }
 
-final class HomeViewController: UIViewController, HomePresentable {
+final class HomeViewController: UIViewController {
     // MARK: - Outlet
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var homeTabBar: HomeTabBar!
@@ -63,5 +65,16 @@ extension HomeViewController: HomeViewControllable {
 
         self.addChild(viewController.uiviewController)
         self.currentViewController = viewController
+    }
+}
+
+// MARK: - HomePresentable
+extension HomeViewController: HomePresentable {
+    func showNotification(title: String, subtitle: String, warningType: WarningType, garden: Garden) {
+        let banner = GrowingNotificationBanner(title: title, subtitle: subtitle, style: warningType == .dead ? BannerStyle.danger : BannerStyle.warning)
+        banner.show()
+        banner.onTap = {
+            self.listener?.didTapToOpenGardenDetail(at: garden)
+        }
     }
 }
