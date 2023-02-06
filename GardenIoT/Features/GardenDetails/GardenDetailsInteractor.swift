@@ -174,4 +174,8 @@ extension GardenDetailsInteractor: MQTTHelperDelegate {
         self.presenter.bind(viewModel: self.viewModel)
 //        print("result \(measureResult.temparature)")
     }
+
+    func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, notificationMessage: NotificationMessage) {
+        // nothing to handle
+    }
 }

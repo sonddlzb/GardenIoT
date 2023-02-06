@@ -15,11 +15,13 @@ private struct Const {
 
 protocol MQTTHelperDelegate: AnyObject {
     func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, measureResult: MeasureResult)
+    func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, notificationMessage: NotificationMessage)
 }
 
 class MQTTHelper {
-    var gardenId: String
-    var deviceId: String
+    var gardenId: String?
+    var deviceId: String?
+    var userId: String?
     var mqtt: CocoaMQTT
     weak var delegate: MQTTHelperDelegate?
 
@@ -27,6 +29,12 @@ class MQTTHelper {
         self.gardenId = gardenId
         self.deviceId = deviceId
         self.mqtt = CocoaMQTT(clientID: gardenId, host: Const.hostName, port: Const.port)
+        self.configMQTT()
+    }
+
+    init(userId: String) {
+        self.userId = userId
+        self.mqtt = CocoaMQTT(clientID: userId, host: Const.hostName, port: Const.port)
         self.configMQTT()
     }
 
@@ -39,12 +47,13 @@ class MQTTHelper {
     }
 
     func subcribeTopic() -> String {
-        return "\(gardenId)/\(deviceId)"
+        return userId == nil ? "\(gardenId!)/\(deviceId!)" : "warning/user/\(userId!)"
     }
 }
 
 extension MQTTHelper: CocoaMQTTDelegate {
     func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
+        print(self.subcribeTopic())
         self.mqtt.subscribe(self.subcribeTopic(), qos: .qos1)
     }
 
@@ -55,7 +64,13 @@ extension MQTTHelper: CocoaMQTTDelegate {
     }
 
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
-        self.delegate?.mqttHelperDidReceive(self, measureResult: message.toObject())
+        if let measureResult = message.toMeasureResultObject() {
+            self.delegate?.mqttHelperDidReceive(self, measureResult: measureResult)
+        }
+
+        if let notificationMessage = message.toNotificationObject() {
+            self.delegate?.mqttHelperDidReceive(self, notificationMessage: notificationMessage)
+        }
     }
 
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopics success: NSDictionary, failed: [String]) {
@@ -75,11 +90,19 @@ extension MQTTHelper: CocoaMQTTDelegate {
 }
 
 extension CocoaMQTTMessage {
-    func toObject() -> MeasureResult {
+    func toMeasureResultObject() -> MeasureResult? {
         let data = Data(self.payload)
         let decoder = JSONDecoder()
-        let entity = try! decoder.decode(MeasureResultEntity.self, from: data)
+        guard let entity = try? decoder.decode(MeasureResultEntity.self, from: data) else {
+            return nil
+        }
+
         return MeasureResult(entity: entity)
     }
-}
 
+    func toNotificationObject() -> NotificationMessage? {
+        let data = Data(self.payload)
+        let decoder = JSONDecoder()
+        return try? decoder.decode(NotificationMessage.self, from: data)
+    }
+}

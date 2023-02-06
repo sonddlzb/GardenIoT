@@ -90,4 +90,8 @@ extension HomeRouter: HomeRouting {
 
         self.viewController.embedViewController(self.gardenRouter!.viewControllable)
     }
+
+    func routeDirectlyToGardenDetail(at garden: Garden) {
+        self.gardenRouter?.routeToGardenDetails(garden: garden)
+    }
 }
