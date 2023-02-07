@@ -71,7 +71,7 @@ extension HomeViewController: HomeViewControllable {
 // MARK: - HomePresentable
 extension HomeViewController: HomePresentable {
     func showNotification(title: String, subtitle: String, warningType: WarningType, garden: Garden) {
-        let banner = GrowingNotificationBanner(title: title, subtitle: subtitle, style: warningType == .dead ? BannerStyle.danger : BannerStyle.warning)
+        let banner = FloatingNotificationBanner(title: title, subtitle: subtitle, titleFont: UIFont.systemFont(ofSize: 18), titleColor: nil, titleTextAlign: nil, subtitleFont: UIFont.systemFont(ofSize: 14), subtitleColor: nil, subtitleTextAlign: nil, leftView: nil, rightView: nil, style: warningType == .dead ? BannerStyle.danger : BannerStyle.warning, colors: nil, iconPosition: .top)
         banner.show()
         banner.onTap = {
             self.listener?.didTapToOpenGardenDetail(at: garden)
