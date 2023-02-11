@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Outfit-Regular.otf">
+            <string>Outfit-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DataDetailsCell" customModule="GardenIoT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="97"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="395" height="97"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYA-Ok-gPQ">
+                        <rect key="frame" x="0.0" y="0.0" width="395" height="97"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yb-h9-IST">
+                                <rect key="frame" x="0.0" y="0.0" width="395" height="97"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gec-kE-itI">
+                                        <rect key="frame" x="0.0" y="0.0" width="158" height="97"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqi-vM-18E">
+                                                <rect key="frame" x="64.5" y="42" width="29.5" height="13"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="aqi-vM-18E" firstAttribute="centerX" secondItem="gec-kE-itI" secondAttribute="centerX" id="MjQ-L3-TaW"/>
+                                            <constraint firstItem="aqi-vM-18E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gec-kE-itI" secondAttribute="leading" id="XM9-m1-Agh"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aqi-vM-18E" secondAttribute="trailing" id="dL4-tt-a2v"/>
+                                            <constraint firstItem="aqi-vM-18E" firstAttribute="centerY" secondItem="gec-kE-itI" secondAttribute="centerY" id="oCk-92-HYr"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cS9-WW-kBF">
+                                        <rect key="frame" x="158" y="0.0" width="118.5" height="97"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taI-x4-LGw">
+                                                <rect key="frame" x="28" y="38" width="42" height="21"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="18"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="taI-x4-LGw" firstAttribute="centerY" secondItem="cS9-WW-kBF" secondAttribute="centerY" id="7Vw-GH-52y"/>
+                                            <constraint firstItem="taI-x4-LGw" firstAttribute="centerX" secondItem="cS9-WW-kBF" secondAttribute="centerX" id="7jx-Wv-fwo"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-7Y-MKg">
+                                        <rect key="frame" x="276.5" y="0.0" width="118.5" height="97"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSc-KY-fRg">
+                                                <rect key="frame" x="29" y="52" width="42" height="21"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="XSc-KY-fRg" firstAttribute="centerY" secondItem="fPU-7Y-MKg" secondAttribute="centerY" id="Vd0-Bm-FQk"/>
+                                            <constraint firstItem="XSc-KY-fRg" firstAttribute="centerX" secondItem="fPU-7Y-MKg" secondAttribute="centerX" id="hex-gK-NLo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cS9-WW-kBF" firstAttribute="width" secondItem="6Yb-h9-IST" secondAttribute="width" multiplier="0.3" id="Mho-o3-L3Z"/>
+                                    <constraint firstItem="fPU-7Y-MKg" firstAttribute="width" secondItem="6Yb-h9-IST" secondAttribute="width" multiplier="0.3" id="aXX-cT-LQs"/>
+                                    <constraint firstItem="gec-kE-itI" firstAttribute="width" secondItem="6Yb-h9-IST" secondAttribute="width" multiplier="0.4" id="dpE-uV-ck1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Yb-h9-IST" firstAttribute="top" secondItem="AYA-Ok-gPQ" secondAttribute="top" id="dPs-uL-mEc"/>
+                            <constraint firstAttribute="bottom" secondItem="6Yb-h9-IST" secondAttribute="bottom" id="gPO-cI-9ds"/>
+                            <constraint firstAttribute="trailing" secondItem="6Yb-h9-IST" secondAttribute="trailing" id="my5-iL-uz5"/>
+                            <constraint firstItem="6Yb-h9-IST" firstAttribute="leading" secondItem="AYA-Ok-gPQ" secondAttribute="leading" id="zCa-7u-v2y"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="AYA-Ok-gPQ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Kwn-38-nrK"/>
+                <constraint firstAttribute="trailing" secondItem="AYA-Ok-gPQ" secondAttribute="trailing" id="anh-G7-pqB"/>
+                <constraint firstAttribute="bottom" secondItem="AYA-Ok-gPQ" secondAttribute="bottom" id="gz7-Uz-qi1"/>
+                <constraint firstItem="AYA-Ok-gPQ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="j3O-TB-xBA"/>
+            </constraints>
+            <size key="customSize" width="395" height="97"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="dateLabel" destination="aqi-vM-18E" id="X7D-LN-GP1"/>
+                <outlet property="moistureLabel" destination="XSc-KY-fRg" id="FhE-OK-6Lg"/>
+                <outlet property="stackView" destination="6Yb-h9-IST" id="imp-kl-nSD"/>
+                <outlet property="temperatureLabel" destination="taI-x4-LGw" id="Ntd-P4-5qX"/>
+            </connections>
+            <point key="canvasLocation" x="171.73913043478262" y="69.308035714285708"/>
+        </collectionViewCell>
+    </objects>
+</document>

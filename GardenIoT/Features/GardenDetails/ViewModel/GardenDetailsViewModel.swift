@@ -9,7 +9,7 @@ import Foundation
 
 struct GardenDetailsViewModel {
     var garden: Garden
-    var temparature: Float = 0.0
+    var temperature: Float = 0.0
     var moisture: Float = 0.0
     var listDevices: [Device] = []
     var currentSensor: Device?
@@ -18,12 +18,12 @@ struct GardenDetailsViewModel {
         self.garden = garden
     }
 
-    func celciusTemparatureValue() -> Float {
-        return round(self.temparature*100)/100
+    func celciusTemperatureValue() -> Float {
+        return round(self.temperature*100)/100
     }
 
-    func fahrenheitTemparatureValue() -> Float {
-        return round((self.temparature * 1.8 + 32) * 100)/100
+    func fahrenheitTemperatureValue() -> Float {
+        return round((self.temperature * 1.8 + 32) * 100)/100
     }
 
     func name() -> String {

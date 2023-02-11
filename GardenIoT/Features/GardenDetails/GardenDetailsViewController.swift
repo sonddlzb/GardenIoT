@@ -19,9 +19,9 @@ protocol GardenDetailsPresentableListener: AnyObject {
 
 final class GardenDetailsViewController: UIViewController, GardenDetailsViewControllable {
     // MARK: - Outlets
-    @IBOutlet private weak var celciusTemparatureLabel: UILabel!
+    @IBOutlet private weak var celciusTemperatureLabel: UILabel!
     @IBOutlet private weak var deviceLabel: UILabel!
-    @IBOutlet private weak var fahrenheitTemparatureLabel: UILabel!
+    @IBOutlet private weak var fahrenheitTemperatureLabel: UILabel!
     @IBOutlet private weak var moistureLabel: UILabel!
     @IBOutlet private weak var sensorDeviceHeaderView: UIView!
     @IBOutlet private weak var controlDeviceHeaderView: UIView!
@@ -209,8 +209,8 @@ extension GardenDetailsViewController: GardenDetailsPresentable {
     func bind(viewModel: GardenDetailsViewModel) {
         self.loadViewIfNeeded()
         self.viewModel = viewModel
-        self.celciusTemparatureLabel.text = "\(viewModel.celciusTemparatureValue())°C"
-        self.fahrenheitTemparatureLabel.text = "\(viewModel.fahrenheitTemparatureValue())°F"
+        self.celciusTemperatureLabel.text = "\(viewModel.celciusTemperatureValue())°C"
+        self.fahrenheitTemperatureLabel.text = "\(viewModel.fahrenheitTemperatureValue())°F"
         self.moistureLabel.text = "\(viewModel.moisture)%"
         self.sensorDeviceView.bind(viewModel: self.viewModel.sensorItem())
         self.controlDeviceView.bind(viewModel: self.viewModel.controlItem())

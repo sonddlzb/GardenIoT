@@ -31,6 +31,9 @@ final class DataStatisticBuilder: Builder<DataStatisticDependency>, DataStatisti
         let viewController = DataStatisticViewController()
         let interactor = DataStatisticInteractor(presenter: viewController)
         interactor.listener = listener
-        return DataStatisticRouter(interactor: interactor, viewController: viewController)
+        let dataDetailsBuilder = DIContainer.resolve(DataDetailsBuildable.self, agrument: component)
+        return DataStatisticRouter(interactor: interactor,
+                                   viewController: viewController,
+                                   dataDetailsBuilder: dataDetailsBuilder)
     }
 }

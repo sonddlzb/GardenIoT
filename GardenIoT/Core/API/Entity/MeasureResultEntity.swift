@@ -11,6 +11,7 @@ struct MeasureResultEntity: Codable {
     var id: String
     var gardenId: String
     var deviceId: String
-    var temparature: Float
+    var temperature: Float
     var moisture: Float
+    var createdAt: String
 }
