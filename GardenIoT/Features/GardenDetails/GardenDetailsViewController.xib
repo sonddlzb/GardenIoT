@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,14 +20,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GardenDetailsViewController">
             <connections>
-                <outlet property="celciusTemparatureLabel" destination="P0Q-db-orm" id="Jhv-vH-QaK"/>
+                <outlet property="celciusTemperatureLabel" destination="P0Q-db-orm" id="Jhv-vH-QaK"/>
                 <outlet property="contentView" destination="4kk-zG-jRC" id="9cf-Xc-6nB"/>
                 <outlet property="controlDeviceContainerViewTopConstraint" destination="M9q-3o-zoO" id="XUg-BC-nFo"/>
                 <outlet property="controlDeviceHeaderView" destination="vE7-85-c8z" id="Uk9-lb-ppp"/>
                 <outlet property="controlDeviceLabel" destination="sha-Rh-evL" id="ppn-1i-J4s"/>
                 <outlet property="controlExpandButton" destination="mBj-Ca-mE1" id="jpF-4V-BRf"/>
                 <outlet property="deviceLabel" destination="VaC-Yo-oJm" id="NT4-NX-Qrr"/>
-                <outlet property="fahrenheitTemparatureLabel" destination="kWA-HG-jHj" id="dFa-dI-iL1"/>
+                <outlet property="fahrenheitTemperatureLabel" destination="kWA-HG-jHj" id="dFa-dI-iL1"/>
                 <outlet property="moistureLabel" destination="5xN-cQ-wZ0" id="s6E-aw-SaS"/>
                 <outlet property="sensorDeviceHeaderView" destination="me5-tN-7wK" id="WFI-E5-muP"/>
                 <outlet property="sensorDeviceLabel" destination="gL2-32-dSV" id="0zM-Rg-caB"/>
@@ -47,7 +45,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRH-Us-rHq">
-                    <rect key="frame" x="0.0" y="44" width="414" height="32"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JRh-xq-zGt" customClass="TapableView" customModule="GardenIoT" customModuleProvider="target">
                             <rect key="frame" x="6" y="0.0" width="32" height="32"/>
@@ -103,16 +101,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4rx-5A-oha">
-                    <rect key="frame" x="0.0" y="76" width="414" height="786"/>
+                    <rect key="frame" x="0.0" y="32" width="414" height="864"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Garden's name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43A-Jc-hlr">
-                            <rect key="frame" x="111.5" y="12" width="191.5" height="30"/>
+                            <rect key="frame" x="111.5" y="12" width="191.5" height="33"/>
                             <fontDescription key="fontDescription" name="Outfit-SemiBold" family="Outfit" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zoE-bi-27n">
-                            <rect key="frame" x="20" y="52" width="374" height="200"/>
+                            <rect key="frame" x="20" y="55" width="374" height="200"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgu-eb-0WP">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="99"/>
@@ -120,14 +118,14 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jjr-GN-lip">
                                             <rect key="frame" x="0.0" y="0.0" width="186.5" height="99"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temparature (Celcius)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9C1-jz-CRe">
-                                                    <rect key="frame" x="25" y="64" width="136" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature (Celcius)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9C1-jz-CRe">
+                                                    <rect key="frame" x="25.5" y="62.5" width="135.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0Q-db-orm">
-                                                    <rect key="frame" x="67" y="26.5" width="52" height="25.5"/>
+                                                    <rect key="frame" x="66" y="22.5" width="54" height="28"/>
                                                     <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -148,14 +146,14 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8N-VE-azq">
                                             <rect key="frame" x="187.5" y="0.0" width="186.5" height="99"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temparature (Fahrenheit)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q22-2W-Ftn">
-                                                    <rect key="frame" x="13" y="64" width="160.5" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature (Fahrenheit)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q22-2W-Ftn">
+                                                    <rect key="frame" x="15.5" y="62.5" width="155.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60°F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWA-HG-jHj">
-                                                    <rect key="frame" x="67" y="26.5" width="52.5" height="25.5"/>
+                                                    <rect key="frame" x="68" y="22.5" width="50.5" height="28"/>
                                                     <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -187,13 +185,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="186.5" height="99"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zg7-KF-zyn">
-                                                    <rect key="frame" x="65" y="64" width="56" height="15"/>
+                                                    <rect key="frame" x="65" y="62.5" width="56" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xN-cQ-wZ0">
-                                                    <rect key="frame" x="70.5" y="26.5" width="45" height="25.5"/>
+                                                    <rect key="frame" x="67.5" y="22.5" width="51" height="28"/>
                                                     <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -215,13 +213,13 @@
                                             <rect key="frame" x="187.5" y="0.0" width="186.5" height="99"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2XU-rU-iBs">
-                                                    <rect key="frame" x="69" y="64" width="48.5" height="15"/>
+                                                    <rect key="frame" x="68.5" y="62.5" width="50" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="Outfit-Regular" family="Outfit" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaC-Yo-oJm">
-                                                    <rect key="frame" x="87" y="26.5" width="13" height="25.5"/>
+                                                    <rect key="frame" x="86.5" y="22.5" width="13.5" height="28"/>
                                                     <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -256,13 +254,13 @@
                             </userDefinedRuntimeAttributes>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kk-zG-jRC">
-                            <rect key="frame" x="0.0" y="252" width="414" height="534"/>
+                            <rect key="frame" x="0.0" y="255" width="414" height="609"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="me5-tN-7wK">
                                     <rect key="frame" x="0.0" y="24" width="414" height="28"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensor Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gL2-32-dSV">
-                                            <rect key="frame" x="10" y="0.0" width="151" height="28"/>
+                                            <rect key="frame" x="10" y="0.0" width="155.5" height="28"/>
                                             <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="24"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -296,7 +294,7 @@
                                     <rect key="frame" x="0.0" y="57" width="414" height="28"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Control Device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sha-Rh-evL">
-                                            <rect key="frame" x="10" y="0.0" width="158" height="28"/>
+                                            <rect key="frame" x="10" y="0.0" width="158.5" height="28"/>
                                             <fontDescription key="fontDescription" name="Outfit-Medium" family="Outfit" pointSize="24"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>

@@ -22,6 +22,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataStatisticViewController">
             <connections>
+                <outlet property="contentView" destination="X4d-bQ-eoN" id="xIE-lb-b4B"/>
                 <outlet property="fromTextField" destination="Dhq-Hc-Xi4" id="5WO-5e-Mls"/>
                 <outlet property="selectGardenButton" destination="2EG-IS-Jda" id="j6P-N1-OyL"/>
                 <outlet property="toTextField" destination="q6g-ik-2FJ" id="epi-hQ-5U7"/>
@@ -204,20 +205,28 @@
                         <constraint firstItem="1N4-T8-lqd" firstAttribute="top" secondItem="tRK-jX-8lX" secondAttribute="bottom" constant="20" id="yjS-3s-pDc"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4d-bQ-eoN">
+                    <rect key="frame" x="0.0" y="246" width="414" height="616"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="1O2-KT-PpF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Cub-EY-OGN"/>
                 <constraint firstItem="1O2-KT-PpF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Odh-uH-fAK"/>
+                <constraint firstItem="X4d-bQ-eoN" firstAttribute="top" secondItem="AJm-Bg-Dvj" secondAttribute="bottom" id="QQ6-yF-pVH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1O2-KT-PpF" secondAttribute="trailing" id="TrF-cK-CAp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="X4d-bQ-eoN" secondAttribute="trailing" id="UvW-a6-Kri"/>
                 <constraint firstAttribute="trailing" secondItem="LRA-xK-NpW" secondAttribute="trailing" id="XK8-AF-7pA"/>
                 <constraint firstItem="LRA-xK-NpW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="a4j-0y-eii"/>
+                <constraint firstItem="X4d-bQ-eoN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bet-7M-XcB"/>
                 <constraint firstItem="AJm-Bg-Dvj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="dEb-JZ-lmP"/>
                 <constraint firstItem="AJm-Bg-Dvj" firstAttribute="top" secondItem="1O2-KT-PpF" secondAttribute="bottom" constant="12" id="daq-fh-zaR"/>
                 <constraint firstAttribute="bottom" secondItem="LRA-xK-NpW" secondAttribute="bottom" id="kWF-cm-GfP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AJm-Bg-Dvj" secondAttribute="trailing" constant="12" id="s4d-n5-qzH"/>
                 <constraint firstItem="LRA-xK-NpW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="t71-AH-m4A"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="X4d-bQ-eoN" secondAttribute="bottom" id="xmm-OL-OZf"/>
             </constraints>
             <point key="canvasLocation" x="-394.20289855072468" y="73.660714285714278"/>
         </view>

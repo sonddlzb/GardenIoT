@@ -169,10 +169,10 @@ extension GardenDetailsInteractor: GardenDetailsPresentableListener {
 // MARK: - MQTTHelperDelegate
 extension GardenDetailsInteractor: MQTTHelperDelegate {
     func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, measureResult: MeasureResult) {
-        self.viewModel.temparature = measureResult.temparature
+        self.viewModel.temperature = measureResult.temperature
         self.viewModel.moisture = measureResult.moisture
         self.presenter.bind(viewModel: self.viewModel)
-//        print("result \(measureResult.temparature)")
+//        print("result \(measureResult.temperature)")
     }
 
     func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, notificationMessage: NotificationMessage) {

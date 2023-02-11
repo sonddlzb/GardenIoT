@@ -17,16 +17,18 @@ protocol DataStatisticPresentableListener: AnyObject {
     func didSelectGarden(at index: Int)
 }
 
-final class DataStatisticViewController: UIViewController, DataStatisticViewControllable {
+final class DataStatisticViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet private weak var toTextField: UITextField!
     @IBOutlet private weak var fromTextField: UITextField!
     @IBOutlet private weak var selectGardenButton: UIButton!
+    @IBOutlet private weak var contentView: UIView!
 
     // MARK: - Varaibles
     weak var listener: DataStatisticPresentableListener?
     private var viewModel = DataStatisticViewModel(fromDate: Date(), toDate: Date())
     private var dropDown = DropDown()
+    private var currentViewController: ViewControllable?
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -100,5 +102,20 @@ extension DataStatisticViewController: DataStatisticPresentable {
         if !isSuccess {
             FailedDialog.show(title: "Failed to get data", message: message)
         }
+    }
+}
+
+extension DataStatisticViewController: DataStatisticViewControllable {
+    func embedViewController(_ viewController: ViewControllable) {
+        self.loadViewIfNeeded()
+
+        self.currentViewController?.uiviewController.view.removeFromSuperview()
+        self.currentViewController?.uiviewController.removeFromParent()
+
+        self.contentView.addSubview(viewController.uiviewController.view)
+        viewController.uiviewController.view.fitSuperviewConstraint()
+
+        self.addChild(viewController.uiviewController)
+        self.currentViewController = viewController
     }
 }

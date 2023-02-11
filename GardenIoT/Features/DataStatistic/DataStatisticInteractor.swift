@@ -10,6 +10,7 @@ import RxSwift
 import SVProgressHUD
 
 protocol DataStatisticRouting: ViewableRouting {
+    func embedDataDetails(listMeasureData: [MeasureResult])
 }
 
 protocol DataStatisticPresentable: Presentable {
@@ -60,11 +61,15 @@ final class DataStatisticInteractor: PresentableInteractor<DataStatisticPresenta
     }
 
     func filterGardenData() {
-//        SVProgressHUD.show()
+        SVProgressHUD.show()
         if let accessToken = AuthorizationHelper.shared.getToken() {
             networkService.getGardenData(accessToken: accessToken, gardenId: self.viewModel.selectedGarden!.id, fromDate: self.viewModel.fromDate, toDate: self.viewModel.toDate).subscribe(onNext: { listData in
                 // handle after
                 print("Number of measure data \(listData.count)")
+                if !listData.isEmpty {
+                    self.router?.embedDataDetails(listMeasureData: listData)
+                }
+
                 SVProgressHUD.dismiss()
             }, onError: { error in
                 print("Failed to get gardens infor with error \(error)")

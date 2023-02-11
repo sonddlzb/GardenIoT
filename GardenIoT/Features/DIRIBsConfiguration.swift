@@ -56,5 +56,9 @@ extension DIConnector {
         DIContainer.register(DataStatisticBuildable.self) { _, args in
             return DataStatisticBuilder(dependency: args.get())
         }
+
+        DIContainer.register(DataDetailsBuildable.self) { _, args in
+            return DataDetailsBuilder(dependency: args.get())
+        }
     }
 }
