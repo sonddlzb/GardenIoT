@@ -9,7 +9,7 @@ import Foundation
 import CocoaMQTT
 
 private struct Const {
-    static let hostName = "localhost"
+    static let hostName = "broker.hivemq.com"
     static let port: UInt16 = 1883
 }
 
@@ -47,7 +47,7 @@ class MQTTHelper {
     }
 
     func subcribeTopic() -> String {
-        return userId == nil ? "\(gardenId!)/\(deviceId!)" : "warning/user/\(userId!)"
+        return userId == nil ? "measure_data/sensor/\(deviceId!)" : "warning-son/user/\(userId!)"
     }
 }
 
@@ -69,7 +69,7 @@ extension MQTTHelper: CocoaMQTTDelegate {
         }
 
         if let notificationMessage = message.toNotificationObject() {
-            self.delegate?.mqttHelperDidReceive(self, notificationMessage: notificationMessage)
+        self.delegate?.mqttHelperDidReceive(self, notificationMessage: notificationMessage)
         }
     }
 
@@ -106,3 +106,4 @@ extension CocoaMQTTMessage {
         return try? decoder.decode(NotificationMessage.self, from: data)
     }
 }
+

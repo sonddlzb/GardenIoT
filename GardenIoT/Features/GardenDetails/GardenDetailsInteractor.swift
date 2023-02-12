@@ -172,7 +172,7 @@ extension GardenDetailsInteractor: MQTTHelperDelegate {
         self.viewModel.temperature = measureResult.temperature
         self.viewModel.moisture = measureResult.moisture
         self.presenter.bind(viewModel: self.viewModel)
-//        print("result \(measureResult.temperature)")
+        print("result \(measureResult.temperature)")
     }
 
     func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, notificationMessage: NotificationMessage) {

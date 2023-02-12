@@ -101,10 +101,17 @@ extension HomeInteractor: MQTTHelperDelegate {
                 return
             }
 
-            let subtitle = notificationMessage.warningType == .dead ? "Environment condition in garden \(garden.name) is over control. Tap here for details" : "Environment condition in garden \(garden.name) is becoming worse. Activate your device now"
-            let title = notificationMessage.warningType == .dead ? "Oh no!" : "Be careful!"
+            if let temperatureStatus = notificationMessage.warningType.temperature {
+                let subtitle = temperatureStatus == .dead ? "Temperature in garden \(garden.name) is over control. Tap here for details" : "Temperature in garden \(garden.name) is becoming worse. Activate your device now"
+                let title = temperatureStatus == .dead ? "Oh no!" : "Be careful!"
+                self.presenter.showNotification(title: title, subtitle: subtitle, warningType: temperatureStatus, garden: garden)
+            }
 
-            self.presenter.showNotification(title: title, subtitle: subtitle, warningType: notificationMessage.warningType, garden: garden)
-        })
+            if let moistureStatus = notificationMessage.warningType.moisture {
+                let subtitle = moistureStatus == .dead ? "Moisture in garden \(garden.name) is over control. Tap here for details" : "Moisture in garden \(garden.name) is becoming worse. Activate your device now"
+                let title = moistureStatus == .dead ? "Oh no!" : "Be careful!"
+                self.presenter.showNotification(title: title, subtitle: subtitle, warningType: moistureStatus, garden: garden)
+            }
+    })
     }
 }
