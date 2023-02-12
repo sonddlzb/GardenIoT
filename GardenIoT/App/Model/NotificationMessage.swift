@@ -10,6 +10,6 @@ import Foundation
 struct NotificationMessage: Codable {
     var temperature: Double?
     var moisture: Double?
-    var warningType: WarningType
+    var warningType: Warning
     var gardenId: String
 }
