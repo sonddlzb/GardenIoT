@@ -14,7 +14,7 @@ private struct Const {
 }
 
 protocol MQTTHelperDelegate: AnyObject {
-    func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, measureResult: MeasureResult)
+    func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, measureResult: TemporaryMeasureResult)
     func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, notificationMessage: NotificationMessage)
 }
 
@@ -64,7 +64,7 @@ extension MQTTHelper: CocoaMQTTDelegate {
     }
 
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
-        if let measureResult = message.toMeasureResultObject() {
+        if let measureResult = message.toTemporaryMeasureResultObject() {
             self.delegate?.mqttHelperDidReceive(self, measureResult: measureResult)
         }
 
@@ -90,14 +90,14 @@ extension MQTTHelper: CocoaMQTTDelegate {
 }
 
 extension CocoaMQTTMessage {
-    func toMeasureResultObject() -> MeasureResult? {
+    func toTemporaryMeasureResultObject() -> TemporaryMeasureResult? {
         let data = Data(self.payload)
         let decoder = JSONDecoder()
-        guard let entity = try? decoder.decode(MeasureResultEntity.self, from: data) else {
+        guard let entity = try? decoder.decode(TemporaryMeasureResultEntity.self, from: data) else {
             return nil
         }
 
-        return MeasureResult(entity: entity)
+        return TemporaryMeasureResult(entity: entity)
     }
 
     func toNotificationObject() -> NotificationMessage? {

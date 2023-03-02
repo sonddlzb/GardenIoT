@@ -92,7 +92,7 @@ extension HomeInteractor: HomePresentableListener {
 
 // MARK: - MQTTHelperDelegate
 extension HomeInteractor: MQTTHelperDelegate {
-    func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, measureResult: MeasureResult) {
+    func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, measureResult: TemporaryMeasureResult) {
     }
 
     func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, notificationMessage: NotificationMessage) {
