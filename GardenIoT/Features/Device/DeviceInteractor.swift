@@ -125,7 +125,22 @@ final class DeviceInteractor: PresentableInteractor<DevicePresentable>, DeviceIn
             }).disposeOnDeactivate(interactor: self)
         }
     }
+
+    private func changeDeviceStatus(deviceId: String, isOn: Bool) {
+        if let accessToken = AuthorizationHelper.shared.getToken() {
+            self.networkService.changeDeviceStatus(accessToken: accessToken, deviceId: deviceId, isOn: isOn).subscribe(onNext: { responseData in
+                    if let device = responseData as? Device {
+                        print("Change status \(device.name) successfully!")
+                    } else {
+                        print("Change device status failed with message \(responseData as! String)")
+                    }
+                }, onError: { error in
+                    print("Change device status failed with error \(error.localizedDescription)")
+                }).disposeOnDeactivate(interactor: self)
+        }
+    }
 }
+
 // MARK: - DevicePresentableListener
 extension DeviceInteractor: DevicePresentableListener {
     func didTapToCreateNewDevice(name: String, description: String, gardenId: String, deviceType: String) {
@@ -133,7 +148,7 @@ extension DeviceInteractor: DevicePresentableListener {
     }
 
     func didChangeControlDeviceStatus(device: Device, isOn: Bool) {
-        // update control device status
+        self.changeDeviceStatus(deviceId: device.id, isOn: isOn)
     }
 
     func didTapToDelete(device: Device) {

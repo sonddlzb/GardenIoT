@@ -43,7 +43,6 @@ final class GardenDetailsInteractor: PresentableInteractor<GardenDetailsPresenta
     override func didBecomeActive() {
         super.didBecomeActive()
         self.fetchAllDeviceIds()
-        self.subcribeForMeasureData()
         self.presenter.bind(viewModel: self.viewModel)
     }
 
@@ -58,15 +57,16 @@ final class GardenDetailsInteractor: PresentableInteractor<GardenDetailsPresenta
     }
 
     func fetchAllDeviceIds() {
-        self.viewModel.listDevices.append(Device(gardenId: "6385965016563213bbc5a3c6", id: "6385d202f8f5ed28a28b3ce5", name: "device-1", description: "sensor-1", type: "sensor", userId: "6378e3305c1c3eb8c3df33d9"))
-        self.viewModel.currentSensor = self.viewModel.listDevices.first
-
         SVProgressHUD.show()
         if let accessToken = AuthorizationHelper.shared.getToken() {
             self.networkService.getAllDevicesByGardenId(accessToken: accessToken, gardenId: self.viewModel.garden.id).subscribe(onNext: { listDevices in
                 self.viewModel.listDevices = listDevices
                 self.viewModel.currentSensor = listDevices.first
                 self.presenter.bind(viewModel: self.viewModel)
+                self.viewModel.currentSensor = self.viewModel.listDevices.first(where: { device in
+                    device.type == "sensor"
+                })
+                self.subcribeForMeasureData()
                 SVProgressHUD.dismiss()
             }, onError: { error in
                 print("get all devices failed with error \(error)")
@@ -82,6 +82,7 @@ final class GardenDetailsInteractor: PresentableInteractor<GardenDetailsPresenta
                 if let deleteSuccessResponse = responseData as? DeleteResponse {
                     self.presenter.bindResult(title: "Delete device", message: "Delete this device successfully!")
                     print("Delete \(deleteSuccessResponse.deletedCount) device \(device.name) successfully!")
+                    self.fetchAllDeviceIds()
                     SVProgressHUD.dismiss()
                 } else {
                     self.presenter.bindResult(title: "Delete device", message: "Something went wrong. Try again!")
@@ -141,12 +142,26 @@ final class GardenDetailsInteractor: PresentableInteractor<GardenDetailsPresenta
             }).disposeOnDeactivate(interactor: self)
         }
     }
+
+    private func changeDeviceStatus(deviceId: String, isOn: Bool) {
+        if let accessToken = AuthorizationHelper.shared.getToken() {
+            self.networkService.changeDeviceStatus(accessToken: accessToken, deviceId: deviceId, isOn: isOn).subscribe(onNext: { responseData in
+                    if let device = responseData as? Device {
+                        print("Change status \(device.name) successfully!")
+                    } else {
+                        print("Change device status failed with message \(responseData as! String)")
+                    }
+                }, onError: { error in
+                    print("Change device status failed with error \(error.localizedDescription)")
+                }).disposeOnDeactivate(interactor: self)
+        }
+    }
 }
 
 // MARK: - GardenDetailsPresentableListener
 extension GardenDetailsInteractor: GardenDetailsPresentableListener {
     func didChangeControlDeviceStatus(device: Device, isOn: Bool) {
-        
+        self.changeDeviceStatus(deviceId: device.id, isOn: isOn)
     }
 
     func didTapToDelete(device: Device) {
@@ -168,7 +183,7 @@ extension GardenDetailsInteractor: GardenDetailsPresentableListener {
 
 // MARK: - MQTTHelperDelegate
 extension GardenDetailsInteractor: MQTTHelperDelegate {
-    func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, measureResult: MeasureResult) {
+    func mqttHelperDidReceive(_ mqttHelper: MQTTHelper, measureResult: TemporaryMeasureResult) {
         self.viewModel.temperature = measureResult.temperature
         self.viewModel.moisture = measureResult.moisture
         self.presenter.bind(viewModel: self.viewModel)

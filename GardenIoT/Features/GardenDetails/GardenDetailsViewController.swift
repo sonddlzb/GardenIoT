@@ -216,6 +216,7 @@ extension GardenDetailsViewController: GardenDetailsPresentable {
         self.controlDeviceView.bind(viewModel: self.viewModel.controlItem())
         self.sensorDeviceLabel.text = "Sensor Device (\(self.viewModel.numberOfSensorDevices()))"
         self.controlDeviceLabel.text = "Control Device (\(self.viewModel.numberOfControlDevices()))"
+        self.deviceLabel.text = "\(self.viewModel.listDevices.count)"
         self.titleLabel.text = self.viewModel.name()
     }
 
@@ -240,6 +241,7 @@ extension GardenDetailsViewController: ControlDeviceViewDelegate {
 
     func controlDeviceViewDidChangeDeviceStatus(_ controlDeviceView: ControlDeviceView, at device: Device, isOn: Bool) {
         self.listener?.didChangeControlDeviceStatus(device: device, isOn: isOn)
+        print(device.id)
     }
 }
 

@@ -8,7 +8,7 @@
 import Foundation
 
 struct AddDeviceViewModel {
-    var listDeviceTypes = ["sensor", "light-bulb"]
+    var listDeviceTypes = ["sensor", "light-bulb", "esp"]
     var listGardens: [Garden]
     var selectedGarden: Garden?
     var selectedDeviceType: String?
